@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_EVALUATION_USER" name="com.uws.domain.evaluation.EvaluationUser">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    
+    <!-- 班级-->
+    <many-to-one column="CLASS_ID" class="com.uws.domain.base.BaseClassModel" name="classId"/>
+    
+    <!-- 测评人-->
+    <many-to-one name="assist" column="ASSIST_ID" class="com.uws.user.model.User"/>
+    
+    <many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User"/>
+    
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

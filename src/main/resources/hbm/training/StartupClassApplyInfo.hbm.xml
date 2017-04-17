@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_TRAINING_STARTUP_APPLYINFO" name="com.uws.domain.training.StartupClassApplyInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="GROWTH_ID" class="com.uws.domain.training.StartupClassInfo" name="growthId"/>
+    <many-to-one column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" name="studentId"/>
+    <many-to-one column="APPLY_STATUS" class="com.uws.sys.model.Dic" name="applyStatus"/>
+    <many-to-one column="COMPLETE_STATUS" class="com.uws.sys.model.Dic" name="completeStatus"/>
+    <many-to-one column="APPROVE_STATUS" class="com.uws.sys.model.Dic" name="approveStatus"/>
+    <property column="SCORE" type="integer" name="score"  />
+    <property column="COMMENTS" type="string" name="comments"  />
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

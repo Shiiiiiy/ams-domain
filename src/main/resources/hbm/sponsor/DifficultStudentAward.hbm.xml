@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_SPONSOR_STUDENT_AWARD" name="com.uws.domain.sponsor.DifficultStudentAward">
+    <id name="id" column="ID" length="32">
+      <generator class="assigned"/>
+    </id>
+    <many-to-one name="difficultStudentInfo" column="DIFFICULT_STUDENT_INFO" class="com.uws.domain.sponsor.DifficultStudentInfo"/>
+    <many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" />
+    <many-to-one name="familyFinance" column="FAMILY_FINANCE" class="com.uws.sys.model.Dic" />
+    <property name="familyCondition" column="FAMILY_CONDITION" type="java.lang.String"/>
+    <many-to-one name="awardType" column="AWARD_TYPE" class="com.uws.sys.model.Dic" />
+    <property name="applyReason" column="APPLY_REASON" type="java.lang.String"/>
+    <property name="applyTime" column="APPLY_TIME" type="java.util.Date"/>
+    <many-to-one name="status"  column="STATUS" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="nextApprover"  column="NEXT_APPROVER" class="com.uws.user.model.User"/>
+    <property name="approveStatus"  column="APPROVE_STATUS" type="java.lang.String"/>
+    <property name="processStatus"  column="PROCESS_STATUS" type="java.lang.String"/>
+    <property name="approveReason"  column="APPROVE_REASON" type="java.lang.String"/>
+    <many-to-one name="delStatus"  column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+    <property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+    <property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

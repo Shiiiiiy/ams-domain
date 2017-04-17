@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!-- 志愿者基地信息 -->   
+  <class table="HKY_VOLUNTEER_OFFICE" name="com.uws.domain.volunteer.VolunteerOfficeModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <!-- 学院 -->  
+    <many-to-one name="college" column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel"/>
+    <!-- 基地地址 -->  
+    <property name="officeAddress" column="OFFICE_ADDRESS"/>
+    <!-- 基地负责人 -->  
+   <!--   <many-to-one column="MANAGER" class="com.uws.domain.base.BaseTeacherModel" name="manager"/>-->
+    <property name="manager" column="MANAGER"/>
+      <!-- 负责人电话 -->  
+    <property name="managerPhone" column="MANAGER_PHONE"/>
+      <!-- 负责人qq -->  
+    <property name="managerQQ" column="MANAGER_QQ"/>
+      <!-- 其他联系方式 -->  
+    <property name="otherWay" column="OTHERWAY"/>
+    <!-- 成立时间 -->  
+    <property name="foundedTime" column="FOUNDED_TIME"/>
+    <!-- 创建时间 -->  
+    <property name="createTime" column="CREATE_TIME"/>
+    <!-- 修改时间 -->  
+    <property name="updateTime" column="UPDATE_TIME"/>
+    <!-- 删除状态 -->  
+    <many-to-one name="deleteStatus" column="DELETE_STATUS" class="com.uws.sys.model.Dic" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="v_job_scheme_class" name="com.uws.domain.job.EmploymentSchemeClassView">
+		<composite-id>
+			<key-many-to-one name="schoolYear" column="school_year_id" class="com.uws.sys.model.Dic"/>
+			<key-many-to-one name="clazz" column="class_id" class="com.uws.domain.base.BaseClassModel"/>
+		</composite-id>
+		<property name="protocoCareerNum" column="num1" type="java.lang.Long"/>
+		<property name="laborCareerNum" column="num2" type="java.lang.Long"/>
+		<property name="otherCareerNum" column="num3" type="java.lang.Long"/>
+		<property name="researchAssistantNum" column="num4" type="java.lang.Long"/>
+		<property name="applyConscriptsNum" column="num5" type="java.lang.Long"/>
+		<property name="nationalBasicProjectNum" column="num6" type="java.lang.Long"/>
+		<property name="localBasicProjectNum" column="num7" type="java.lang.Long"/>
+		<property name="selfEmployedNum" column="num8" type="java.lang.Long"/>
+		<property name="freelanderNum" column="num9" type="java.lang.Long"/>
+		<property name="goHigherSchoolNum" column="num10" type="java.lang.Long"/>
+		<property name="goAbroadNum" column="num11" type="java.lang.Long"/>
+		<property name="noJobNum" column="num12" type="java.lang.Long"/>
+		<property name="totalNum" column="num13" type="java.lang.Long"/>
+	</class>
+</hibernate-mapping>

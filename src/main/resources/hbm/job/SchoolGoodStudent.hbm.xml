@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="HKY_JOB_SCHOOL_GOOD_STUDENT" name="com.uws.domain.job.SchoolGoodStudent">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<many-to-one name="agreementModel" column="AGREEMENT_ID" class="com.uws.domain.job.AgreementModel"/>
+		<many-to-one name="studentId" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel"/>
+		<many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic"/>
+		<property name="post" column="POST" type="java.lang.String"/>
+		<property name="computerLevel" column="COMPUTER_LEVEL" type="java.lang.String"/>
+		<!-- <many-to-one name="computerLevel" column="COMPUTER_LEVEL" class="com.uws.sys.model.Dic"/> -->
+		<property name="classNumber" column="CLASS_NUMBER" type="java.lang.Integer"/>
+		<!--<many-to-one name="englishLevel" column="ENGLISH_LEVEL" class="com.uws.sys.model.Dic"/>-->
+		<property name="englishLevel" column="ENGLISH_LEVEL" type="java.lang.String"/>
+		<!-- <many-to-one name="approveStatus" column="APPROVE_STATUS" class="com.uws.sys.model.Dic"/> -->
+		<property name="approveStatus" column="APPROVE_STATUS" type="java.lang.String"/>
+		<property name="approveReason" column="APPROVE_REASON" type="java.lang.String"/>
+		<property name="classSort" column="CLASS_SORT" type="java.lang.Integer"/>
+		<property name="avgScore" column="AVG_SCORE" type="java.lang.Float"/>
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="submitStatus" column="SUBMIT_STATUS" class="com.uws.sys.model.Dic"/>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+		<many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User"/>
+		<property name="performance" column="PERFORMANCE" type="java.lang.String"/>
+		<property name="honor" column="HONOR" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

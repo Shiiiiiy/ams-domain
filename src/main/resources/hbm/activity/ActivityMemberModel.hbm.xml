@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<!-- 活动成员实体 -->
+  <class table="HKY_ACTIVITY_MEMBER" name="com.uws.domain.activity.ActivityMemberModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="ACTIVITY_ID" class="com.uws.domain.activity.ActivityBaseinfoModel" name="activityPo"/>
+    <many-to-one column="MEMBER_ID" class="com.uws.domain.orientation.StudentInfoModel" name="member"/>
+    <!-- 审核状态 -->   
+    <many-to-one column="APPROVE_STATUS" class="com.uws.sys.model.Dic" name="approveStatus"/>
+    <!-- 原因 -->   
+    <property name="suggest" column="SUGGEST"></property>
+    <!-- 备注 -->   
+    <property name="comments" column="COMMENTS"></property>
+    <!-- 删除状态 -->   
+    <many-to-one column="DELETE_STATUS" class="com.uws.sys.model.Dic" name="deleteStatus"/>
+    <!-- 报名方式 -->   
+    <many-to-one column="REGISTRA_FORM" class="com.uws.sys.model.Dic" name="registraForm"/> 
+    <!-- 创建时间 -->   
+    <property name="createTime" column="CREATE_TIME"></property>
+    <!-- 更新时间 -->   
+    <property name="updateTime" column="UPDATE_TIME"></property>
+  </class>
+</hibernate-mapping>

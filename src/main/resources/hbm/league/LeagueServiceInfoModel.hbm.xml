@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.uws.domain.league.LeagueMemberServiceInfoModel" table="V_LEAGUE_MEMBER_SERVICE" >
+    <id name="id" type="string">
+       <column name="ID" length="32" />
+       <generator class="uuid.hex" />
+    </id>
+
+	  <!-- 学院 -->
+     <many-to-one  name="college" column="COLLEGE_ID" class="com.uws.domain.base.BaseAcademyModel" />
+     
+     <!-- 专业-->
+     <many-to-one name="major" column="MAJOR_ID" class="com.uws.domain.base.BaseMajorModel" />
+        
+     <!-- 班级-->
+     <many-to-one name="classId" column="CLASS_ID" class="com.uws.domain.base.BaseClassModel" />
+     
+     <!-- 班主任 -->
+	<many-to-one name="headmaster" column="HEADMASTER" class="com.uws.domain.base.BaseTeacherModel" />
+	
+	 <!-- 团支书 -->
+	<many-to-one name="secretary" column="SECRETARY" class="com.uws.domain.orientation.StudentInfoModel"/>
+	
+	<!-- 学生人数 -->
+	<property name="stunums" column="STUNUMS"/>
+  </class>
+</hibernate-mapping>

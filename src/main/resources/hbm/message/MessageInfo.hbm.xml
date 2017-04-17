@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_MESSAGE_INFO" name="com.uws.domain.message.MessageInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="title" column="TITLE"/>
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <many-to-one column="UPDATE_PERSON" class="com.uws.user.model.User" name="updatePerson"/>
+    <many-to-one column="MESSAGE_TYPE" class="com.uws.sys.model.Dic" name="messageType"/>
+    <many-to-one column="MESSAGE_COLUMN" class="com.uws.sys.model.Dic" name="messageColumn"/>
+    <property name="isUp" column="IS_UP"/>
+    <property name="isRed" column="IS_RED"/>
+    <many-to-one column="POST_STATE" class="com.uws.sys.model.Dic" name="postState"/>
+    <property name="postDate" type="timestamp">
+        <column name="POST_DATE" length="19" />
+    </property>
+    <property name="seqNum" column="SEQ_NUM"/>
+    <property name="messageContent" column="MESSAGE_CONTENT" type="text"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

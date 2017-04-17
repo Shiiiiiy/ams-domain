@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_REWARD_AWARD_APPROVE" name="com.uws.domain.reward.AwardApprove">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="APPLY_TYPE" class="com.uws.sys.model.Dic" name="applyType"/>
+    <property name="applyTime" type="timestamp">
+        <column name="APPLY_TIME" length="19" />
+    </property>
+    <property column="APPROVE_MESSAGE" type="string" name="approveMessage"  />
+    <many-to-one column="APPROVE_RESULT" class="com.uws.sys.model.Dic" name="approveResult"/>
+    <many-to-one column="APPROVE_USER" class="com.uws.user.model.User" name="approveUser"/>
+    <property name="approveTime" type="timestamp">
+        <column name="APPROVE_TIME" length="19" />
+    </property>
+    <many-to-one column="NEXT_APPROVER" class="com.uws.user.model.User" name="nextApprover"/>
+    <many-to-one column="APPROVE_STATUS" class="com.uws.sys.model.Dic" name="approveStatus"/>
+    <many-to-one column="PROCESS_STATUS" class="com.uws.sys.model.Dic" name="processStatus"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

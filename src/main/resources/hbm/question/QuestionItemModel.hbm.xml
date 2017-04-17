@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_ITEM" name="com.uws.domain.question.QuestionItemModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+	<property name="itemName" column="ITEM_NAME"  type="java.lang.String"/>
+    <many-to-one name="itemType" column="ITEM_TYPE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="itemCategory" column="ITEM_CATEGORY" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="useStatus" column="USE_STATUS" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="required" column="REQUIRED" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User"/>
+    <property name="createTime"  type="java.util.Date">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime"  type="java.util.Date">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

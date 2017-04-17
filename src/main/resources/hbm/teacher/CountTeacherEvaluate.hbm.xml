@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-24 14:47:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.teacher.CountTeacherEvaluate" table="V_COUNT_TEACHER_EVALUATE">
+        <composite-id>
+        	<key-many-to-one name="schoolYear" class="com.uws.sys.model.Dic" >
+            	<column name="SCHOOLYEAR" />
+	        </key-many-to-one>
+	        <key-many-to-one name="college" class="com.uws.domain.base.BaseAcademyModel" >
+	            <column name="COLLEGE" />
+	        </key-many-to-one>
+        </composite-id>
+        
+        <property name="excellent" type="java.lang.Integer">
+            <column name="EXCELLENT" />
+        </property>
+        <property name="well" type="java.lang.Integer">
+            <column name="WELL" />
+        </property>
+        <property name="medium" type="java.lang.Integer">
+            <column name="MEDIUM" />
+        </property>
+        <property name="bad" type="java.lang.Integer">
+            <column name="BAD" />
+        </property>
+    </class>
+</hibernate-mapping>

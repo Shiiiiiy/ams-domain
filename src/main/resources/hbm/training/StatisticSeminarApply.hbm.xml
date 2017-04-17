@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="V_TRAINING_SEMINAR_APPLY" name="com.uws.domain.training.StatisticSeminarApply">
+		<id name="seminarId" column="SEMINAR_ID" type="java.lang.String" length="32">
+			<generator class="identity" />
+		</id>
+		
+		<property name="seminarName" column="SEMINAR_NAME" type="java.lang.String" length="32"/>
+		
+		<property name="seminarTheme" column="SEMINAR_THEME" type="java.lang.String" length="32"/>
+		
+		<many-to-one name="outerUserId" column="OUTER_USER_ID" class="com.uws.domain.training.OuterUserInfo"/>
+		
+		<property name="seminarDate"  column="SEMINAR_DATE" type="java.util.Date" length="19"/>
+
+		<property name="appointPlace" column="APPOINT_PLACE" type="java.lang.String" length="32"/>
+		
+		<property name="attendNum" column="ATTEND_NUM" type="java.lang.Integer" length="32"/>
+		
+		<property name="totalNum" column="TOTAL_NUM" type="java.lang.Integer" length="32" />
+	</class>
+</hibernate-mapping>

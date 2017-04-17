@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="V_SS_DISCIPLINE" name="com.uws.domain.dorm.DormDisciplineView">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="studentRoomModel" column="STUDENT_ROOM" class="com.uws.domain.base.StudentRoomModel"/>
+    <many-to-one name="student" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel"/>
+    <property name="disciplineLevel"  column="DISCIPLINE_LEVEL" type="java.lang.String"/>
+    <property name="disciplineName"  column="DISCIPLINE_NAME" type="java.lang.String"/>
+    <property name="comments"  column="COMMENTS" type="java.lang.String"/>
+    <property name="zt"  column="ZT" type="java.lang.String"/>
+    <property name="disciplineTime" column="DISCIPLINE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

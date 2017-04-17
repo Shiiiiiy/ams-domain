@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_SPONSOR_DIFFICULT_STUDENT" name="com.uws.domain.sponsor.DifficultStudentInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="assigned"/>
+    </id>
+    <many-to-one name="student" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" />
+    <many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" />
+    <many-to-one name="difficultLevel" column="DIFFICULT_LEVEL" class="com.uws.sys.model.Dic" />
+    <property name="perCapita" column="PER_CAPITA"/>
+    <many-to-one name="accountType"  column="ACCOUNT_TYPE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="familySurvey"  column="FAMILY_SURVEY" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="familyFinance"  column="FAMILY_FINANCE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="villageProve"  column="VILLAGE_PROVE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="townProve"  column="TOWN_PROVE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="countyProve"  column="COUNTY_PROVE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="isStudentLoan"  column="IS_STUDENT_LOAN" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="lowAssuranceLevel"  column="LOW_ASSURANCE_LEVEL" class="com.uws.sys.model.Dic"/>
+    <property name="lowAssuranceNumber" column="LOW_ASSURANCE_NUMBER" type="java.lang.String"/>
+    <many-to-one name="aidCertificateLevel"  column="AID_CERTIFICATE_LEVEL" class="com.uws.sys.model.Dic"/>
+    <property name="aidCertificateNumber" column="AID_CERTIFICATE_NUMBER" type="java.lang.String"/>
+    <many-to-one name="isOrphan"  column="IS_ORPHAN" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="disabilityCertificateKind"  column="DISABILITY_CERTIFICATE_KIND" class="com.uws.sys.model.Dic"/>
+    <property name="disabilityCertificateLevel"  column="DISABILITY_CERTIFICATE_LEVEL" type="java.lang.String"/>
+    <property name="disabilityCertificateNumber" column="DISABILITY_CERTIFICATE_NUMBER" type="java.lang.String"/>
+    <many-to-one name="isSingle"  column="IS_SINGLE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="isMartyr"  column="IS_MARTYR" class="com.uws.sys.model.Dic"/>
+    <property name="remark" column="REMARK" type="java.lang.String"/>
+    <property name="applyReason" column="APPLY_REASON" type="java.lang.String"/>
+    <property name="applyTime" column="APPLY_TIME" type="java.util.Date"/>
+    <many-to-one name="status"  column="STATUS" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="nextApprover"  column="NEXT_APPROVER" class="com.uws.user.model.User"/>
+    <property name="approveStatus"  column="APPROVE_STATUS" type="java.lang.String"/>
+    <property name="processStatus"  column="PROCESS_STATUS" type="java.lang.String"/>
+    <property name="approveReason" column="APPROVE_REASON" type="java.lang.String"/>
+    <many-to-one name="delStatus"  column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+    <property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+    <property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

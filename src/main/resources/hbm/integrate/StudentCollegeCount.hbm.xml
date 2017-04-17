@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="V_STUDENT_COLLEGE_COUNT" name="com.uws.domain.integrate.StudentCollegeCount">
+    <id name="id" column="ID">
+        <generator class="uuid.hex"/>
+     </id>
+     <property name="grade"  type="java.lang.String" column="GRADE"/>
+     <property name="totalCount" column="TOTAL_COUNT" type="double"/>
+     <many-to-one column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel" name="college"/>
+     <property name="boy" column="BOY" type="double"/>
+     <property name="girl" column="GIRL" type="double"/>
+     
+  </class>
+</hibernate-mapping>

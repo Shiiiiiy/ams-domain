@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_TRAINING_SEMINAR_INFO" name="com.uws.domain.training.SeminarManage">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 讲座名称 -->
+		<property name="seminarName" type="java.lang.String">
+			<column name="SEMINAR_NAME" length="32">
+			</column>
+		</property>
+
+		<!-- 讲座主题 -->
+		<property name="seminarTheme" type="java.lang.String">
+			<column name="SEMINAR_THEME" length="32">
+			</column>
+		</property>
+
+		<!-- 主讲人ID -->
+		<many-to-one name="outerUserId" class="com.uws.domain.training.OuterUserInfo"
+			column="OUTER_USER_ID"></many-to-one>
+
+		<!-- 讲座状态 -->
+		<many-to-one name="seminarStatus" column="SEMINAR_STATUS"
+			class="com.uws.sys.model.Dic" />
+
+		<!-- 讲座确认日期 -->
+		<property name="seminarDate" type="java.util.Date">
+			<column name="SEMINAR_DATE">
+			</column>
+		</property>
+		
+		<!-- 讲座开始时间 -->
+		<property name="beginDate" type="java.lang.String">
+			<column name="BEGIN_DATE" length="32">
+			</column>
+		</property>
+		
+		<!-- 讲座结束时间 -->
+		<property name="endDate" type="java.lang.String">
+			<column name="END_DATE" length="32">
+			</column>
+		</property>
+
+		<!-- 讲座确认地点 -->
+		<property name="appointPlace" type="java.lang.String">
+			<column name="APPOINT_PLACE" length="32">
+			</column>
+		</property>
+
+		<!-- 讲座确认人数 -->
+		<property name="attendNum" type="java.lang.Integer">
+			<column name="ATTENDE_NUM" length="100">
+			</column>
+		</property>
+
+		<!-- 实到人数 -->
+		<property name="actualNum" type="integer">
+			<column name="ACTUAL_NUM" length="100">
+			</column>
+		</property>
+
+		<!-- 报名人数 -->
+		<property name="applyNum" type="integer">
+			<column name="APPLY_NUM" length="100">
+			</column>
+		</property>
+
+		<!-- 备注 -->
+		<property name="comment" type="string">
+			<column name="COMMENT1" length="1000">
+			</column>
+		</property>
+		
+		<!-- 创建人 -->
+		<many-to-one name="creator" column="CREATOR"
+			class="com.uws.user.model.User" />
+
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.uws.domain.sponsor.TemporaryWorkStudyModel" table="HKY_SPONSOR_TEMP_WORK_STUDY">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<many-to-one name="studentId" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel"/>
+		<many-to-one name="orgId" column="ORG_ID" class="com.uws.user.model.Org"/>
+		<property name="orgName" column="ORG_NAME" type="java.lang.String"/>
+		<property name="workMonth" column="WORK_MONTH" type="java.lang.String"/>
+		<property name="workHour" column="WORK_HOUR" type="java.lang.Float"/>
+		<property name="workSalary" column="WORK_SALARY" type="java.lang.Double"/>
+		<property name="totalSalary" column="TOTAL_SALARY" type="java.lang.Double"/>
+		<property name="bank" column="BANK" type="java.lang.String"/>
+		<property name="cardNum" column="CARD_NUM" type="java.lang.String"/>
+		<property name="workPerformance" column="WORK_PERFORMANCE" type="java.lang.String"/>
+		<many-to-one name="schoolYear" column="YEAR" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="schoolTerm" column="TERM" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+		<property name="comments" column="COMMENTS" type="java.lang.String"/>
+		<many-to-one name="operator" column="OPERATOR" class="com.uws.user.model.User"/>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>

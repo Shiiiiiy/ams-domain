@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_TRAINING_STARTUP_INFO" name="com.uws.domain.training.StartupClassInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <property column="GROWTH_CLASS_NAME" type="string" name="growthClassName"  />
+    <many-to-one column="GROWTH_CLASS_TYPE" class="com.uws.sys.model.Dic" name="growthClassType"/>
+    <property column="GROWTH_CLASS_THEME" type="string" name="growthClassTheme"  />
+    <many-to-one column="GROWTH_CLASS_LEADER" class="com.uws.domain.base.BaseTeacherModel" name="growthClassLeader"/>
+    <many-to-one column="GROWTH_CLASS_STATUS" class="com.uws.sys.model.Dic" name="growthClassStatus"/>
+    <property column="APPLY_END_DATE" type="date" name="applyEndDate"  />
+    <property column="CLASS_BEGIN_DATE" type="date" name="classBeginDate"  />
+    <property column="PLAN_END_DATE" type="date" name="planEndDate"  />
+    <many-to-one column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" name="schoolYear"/>
+    <property column="COMMENTS" type="string" name="comments"  />
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <many-to-one column="UPDATOR" class="com.uws.user.model.User" name="updator"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

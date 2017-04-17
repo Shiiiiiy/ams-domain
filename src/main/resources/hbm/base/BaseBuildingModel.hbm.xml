@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_BASE_BUILDING" name="com.uws.domain.base.BaseBuildingModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="name" column="NAME"/>
+    <property name="campusName" column="CAMPUS_NAME"/>
+    <many-to-one column="CAMPUS" class="com.uws.sys.model.Dic" name="campus"/>
+  </class>
+</hibernate-mapping>

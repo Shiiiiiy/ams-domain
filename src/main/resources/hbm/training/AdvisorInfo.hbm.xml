@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_TRAINING_ADVISOR_INFO" name="com.uws.domain.training.AdvisorInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="OUTER_USER_ID" class="com.uws.domain.training.OuterUserInfo" name="outerUserInfo"/>
+    <property name="advisorDate" type="timestamp">
+        <column name="ADVISOR_DATE" length="19" />
+    </property>
+    <property column="ADVISOR_TIME" type="string" name="advisorTime"  />
+    <property column="ADVISOR_INTRO" type="string" name="advisorIntro"  />
+    <property column="ADVISOR_STUDENT_NUM"  name="advisorStuNum"  />
+    <many-to-one column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" name="schoolYear"/>
+    <many-to-one column="ADVISOR_STATUS" class="com.uws.sys.model.Dic" name="advisorStatus"/>
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

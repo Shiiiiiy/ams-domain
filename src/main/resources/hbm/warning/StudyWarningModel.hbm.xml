@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_WARNING_STUDY" name="com.uws.domain.warning.StudyWarningModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="student" class="com.uws.domain.orientation.StudentInfoModel" column="STUDENT_ID"/>
+    <property name="warningDate" column="WARNING_DATE"/>
+    <property name="studyWarning" column="STUDY_WARNING"/>
+    <property name="comments" column="COMMENTS"/>
+    <many-to-one name="creator" class="com.uws.user.model.User" column="CREATOR"/>
+    <property name="createTime" column="CREATE_TIME"/>
+    <property name="updateTime" column="UPDATE_TIME"/>
+  </class>
+</hibernate-mapping>

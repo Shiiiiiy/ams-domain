@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_WARNING_PSYCHOLOGY" name="com.uws.domain.warning.PsychologyWarning">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="student" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" />
+    <many-to-one name="onlyChild" column="ONLY_CHILD" class="com.uws.sys.model.Dic" />
+    <many-to-one name="childFoster" column="CHILD_FOSTER" class="com.uws.sys.model.Dic" />
+    <many-to-one name="problemAssessment" column="PROBLEM_ASSESSMENT" class="com.uws.sys.model.Dic" />
+    <many-to-one name="isHospitalMedication" column="IS_HOSPITAL_MEDICATION" class="com.uws.sys.model.Dic" />
+    <many-to-one name="dangerAssessment" column="DANGER_ASSESSMENT" class="com.uws.sys.model.Dic" />
+    <many-to-one name="collegeOpinion" column="COLLEGE_OPINION" class="com.uws.sys.model.Dic" />
+    <many-to-one name="psychologyOpinion" column="PSYCHOLOGY_OPINION" class="com.uws.sys.model.Dic" />
+    <many-to-one name="psychologyAssessment" column="PSYCHOLOGY_ASSESSMENT" class="com.uws.sys.model.Dic" />
+    <property name="comments" column="COMMENTS"/>
+    <property name="createTime" column="CREATE_TIME"/>
+    <property name="updateTime" column="UPDATE_TIME"/>
+  </class>
+</hibernate-mapping>

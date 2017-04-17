@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_STUDENT_REPORT" name="com.uws.domain.orientation.StudentReportModel">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+     <!-- 学生基本信息 -->
+     <many-to-one column="STU_ID" class="com.uws.domain.orientation.StudentInfoModel" name="studentInfo"/>
+     
+     <!-- 学年 -->
+     <many-to-one column="YEAR" class="com.uws.sys.model.Dic" name="yearDic"/>
+     <!--<property name="year" type="string">
+            <column name="YEAR" length="4">
+            </column>
+    </property>-->
+     
+     <!-- 是否报到 -->
+     <property name="isReport" type="string">
+            <column name="IS_REPORT" length="2">
+            </column>
+     </property>
+     
+     <!-- 不报到原因 -->
+     <property name="reason" type="string">
+            <column name="REASON" length="100">
+            </column>
+     </property>
+     
+     <!-- 预计报到时间-->    
+    <property name="reportDate" type="timestamp">
+            <column name="REPORT_DATE" length="19" />
+    </property>
+    
+     <!-- 预到达站点-->
+     <many-to-one column="SITE" class="com.uws.sys.model.Dic" name="siteDic"/>
+     
+      <!-- 预计车次-->
+     <property name="trainNumber" type="string">
+            <column name="TRAIN_NUMBER" length="20">
+            </column>
+     </property>
+     
+     <!-- 乘车方式 -->
+     <many-to-one column="RIDE_WAY" class="com.uws.sys.model.Dic" name="rideWayDic"/>
+     
+     <!-- 随行人员-->
+     <property name="together" type="java.lang.Integer">
+            <column name="TOGETHER" length="100">
+            </column>
+     </property>
+     
+     <!-- 自备车-->
+     <property name="isCar" type="string">
+            <column name="CAR" length="2">
+            </column>
+     </property>
+     
+     <!-- 需要空调-->
+     <property name="airCond" type="string">
+            <column name="AIR_COND" length="2">
+            </column>
+     </property>
+     
+     <!-- 需要寝具包-->
+     <property name="bed" type="string">
+            <column name="BED" length="2">
+            </column>
+     </property>
+     
+       <!--  是否迁户口-->
+     <property name="move" type="string">
+            <column name="MOVE" length="2">
+            </column>
+     </property>
+     
+     <!-- 状态-->
+     <!-- <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="statusDic"/>-->
+     <!-- 状态-->
+     <property name="status" type="string">
+            <column name="STATUS" length="2">
+            </column>
+     </property>
+    
+   	<!-- 创建日期-->
+    <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <!-- 创建人-->
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    
+    <!-- 更新日期-->    
+    <property name="updateTime" type="timestamp">
+            <column name="UPDATE_TIME" length="19" />
+    </property>
+    
+    <!-- 更新人-->
+    <many-to-one column="UPDATER" class="com.uws.user.model.User" name="updater"/>
+    
+  </class>
+</hibernate-mapping>

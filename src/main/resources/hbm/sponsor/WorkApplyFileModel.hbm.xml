@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-19 11:59:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.sponsor.WorkApplyFileModel" table="HKY_SPONSOR_WORK_APPLY_FILE" >
+        
+        <id name="workApplyFileId" type="string">
+            <column name="ID" length="32" />
+            <generator class="uuid.hex" />
+        </id>
+    <!-- 联系电话 -->
+    <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+    </property>
+    <!-- 联系QQ -->
+    <property name="attachQQ" type="java.lang.String">
+            <column name="ATTACH_QQ" />
+    </property>
+    <!-- 联系邮箱 -->
+    <property name="attachEmail" type="java.lang.String">
+            <column name="ATTACH_EMAIL" />
+    </property>
+    <!-- 特长 -->
+    <property name="forte" type="java.lang.String">
+            <column name="FORTE" />
+    </property>
+    <!-- 工作经历 -->
+    <property name="workExperience" type="java.lang.String">
+            <column name="WORK_EXPERIENCE" />
+    </property>
+    <!-- 家庭成员 -->
+    <property name="familyCondition" type="java.lang.String">
+            <column name="FAMILY_CONDITION" />
+    </property>
+    <!-- 学年 -->
+    <many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" />
+    
+   	<!-- 学期 -->	
+   	<many-to-one name="term" column="TERM" class="com.uws.sys.model.Dic" />
+	<!-- 申请说明 -->
+	<property name="applyDesc" type="java.lang.String">
+            <column name="APPLY_DESC" />
+    </property>
+	<!--删除状态  -->
+	<many-to-one name="delStatus" column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+	
+	<!-- 备注-->
+	<property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="500"/>
+    </property>
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>    
+        
+        
+       
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!-- 志愿者荣誉信息 -->   
+  <class table="HKY_VOLUNTEER_HONOR_USER" name="com.uws.domain.volunteer.VolunteerHonorUserModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <!-- 荣誉对象 -->   
+    <many-to-one column="HONOR_ID" class="com.uws.domain.volunteer.VolunteerHonorModel" name="volunteerHonorPo"/>
+    <!-- 志愿者对象 -->   
+    <many-to-one column="VOLUNTEER_ID" class="com.uws.domain.volunteer.VolunteerBaseinfoModel" name="volunteerPo"/>
+    <!-- 创建时间 -->  
+    <property name="createTime" column="CREATE_TIME"/>
+    <!-- 修改时间 -->  
+    <property name="updateTime" column="UPDATE_TIME"/>
+    <!-- 删除状态 -->  
+    <many-to-one column="DELETE_STATUS" class="com.uws.sys.model.Dic" name="deleteStatus"/>
+  </class>
+</hibernate-mapping>

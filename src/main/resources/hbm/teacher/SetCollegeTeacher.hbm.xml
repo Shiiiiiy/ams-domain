@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="V_COLLEGE_TEACHER_SET" name="com.uws.domain.teacher.SetCollegeTeacher">
+    <id name="id" type="java.lang.String">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="college" column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel"/>
+    <many-to-one name="evaCounsellor" column="EVALUATION_COUNSELLOR" class="com.uws.domain.base.BaseTeacherModel"></many-to-one>
+    <many-to-one name="subCounsellor" column="SUBSIDIZE_COUNSELLOR" class="com.uws.domain.base.BaseTeacherModel"></many-to-one>
+    <many-to-one name="careerCounsellor" column="CAREER_COUNSELLOR" class="com.uws.domain.base.BaseTeacherModel"></many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_TEACHER_EXTEND_INFO" name="com.uws.domain.teacher.TeacherInfoModel">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		
+		<!-- 教师 -->
+		<many-to-one name="teacher" class="com.uws.domain.base.BaseTeacherModel"
+			column="TEACHER_ID"></many-to-one>
+			
+		<!-- 联系电话 -->
+		<property name="cellphone" type="string">
+			<column name="CELLPHONE" length="32">
+			</column>
+		</property>
+
+		<!-- 邮件 -->
+		<property name="email" type="string">
+			<column name="EMAIL" length="32">
+			</column>
+		</property>
+		
+		<!-- 地址 -->
+		<property name="address" type="string">
+			<column name="ADDRESS" length="100">
+			</column>
+		</property>
+		
+		<!-- 邮编 -->
+		<property name="postCode" type="string">
+			<column name="POST_CODE" length="32">
+			</column>
+		</property>
+		
+		<!-- 工作经历 -->
+		<property name="experience" type="string">
+			<column name="EXPERIENCE" length="32">
+			</column>
+		</property>
+		
+		<!-- 状态 -->
+		<property name="status" type="string">
+			<column name="STATUS" length="32">
+			</column>
+		</property>
+		
+		<!-- 荣誉 -->
+		<property name="honour" type="string">
+			<column name="HONOUR" length="2000">
+			</column>
+		</property>
+		
+		<!-- 授课风格 -->
+		<property name="teachingStyle" type="string">
+			<column name="TEACHING_STYLE" length="1000">
+			</column>
+		</property>
+		
+		<!-- 工作电话 -->
+		<property name="phoneNumber" type="string">
+			<column name="PHONE_NUMBER"></column>
+		</property>
+
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

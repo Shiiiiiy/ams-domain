@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-19 11:59:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.sponsor.WorkOrgModel" table="HKY_SPONSOR_WORK_ORG" >
+        
+        <id name="workOrgId" type="string">
+            <column name="ID" length="32" />
+            <generator class="uuid.hex" />
+        </id>
+   
+	<!-- 学年 -->
+    <many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" />
+	<!-- 学期 -->
+	<many-to-one name="term" column="TERM" class="com.uws.sys.model.Dic" />
+        
+ 	
+	<!-- 用工部门  -->
+	<many-to-one name="org" column="ORG_ID" class="com.uws.user.model.Org" />
+    <!-- 用工部门名称 -->
+    <property name="orgName" type="string">
+            <column name="ORG_NAME" length="50"/>
+   	</property>
+    <!-- 岗位数  -->
+    <property name="workJobNumber" type="java.lang.Integer">
+            <column name="WORK_JOB_NUMBER" />
+    </property>
+       
+    <!-- 用工时间 -->
+ 	<property name="workTime" type="java.lang.Double">
+            <column name="WORK_TIME" />
+    </property>
+	<!-- 预算金额 -->
+	<property name="budgetSalary" type="java.lang.Double">
+            <column name="BUDGET_SALARY" />
+    </property>
+    
+   
+    <!-- 申请理由 -->
+	<property name="applyReason" type="string">
+	           <column name="APPLY_REASON" length="200"/>
+   	</property>
+	
+    <!-- 状态（保存、提交） -->   
+    <many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+    <!-- 删除状态 -->
+    <many-to-one name="delStatus" column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+	
+	    
+    <!-- 下一节点办理人 -->    
+    <many-to-one name="nextApprover"  column="NEXT_APPROVER" class="com.uws.user.model.User"/>
+    
+    <!-- 流程审批状态 -->
+    <property name="approveStatus"  column="APPROVE_STATUS" type="java.lang.String"/>
+   
+    <!-- 流程实例状态 -->   
+    <property name="processStatus"  column="PROCESS_STATUS" type="java.lang.String"/>
+   
+   	<!-- 审核理由 -->
+  	<property name="approveReason" type="string">
+	           <column name="APPROVE_REASON" length="200"/>
+   	</property>
+   	
+   	<!-- 备注-->
+	<property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="500"/>
+    </property>
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>  
+       
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="V_LEAVE_INFO" name="com.uws.domain.leave.VLeaveInfo">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 学生基础信息表id -->
+		<many-to-one name="student" column="STUDENT_ID"
+			class="com.uws.domain.orientation.StudentInfoModel" />
+
+		<!-- 宿管 -->
+		<many-to-one name="dorm" column="DORM_ID" class="com.uws.domain.leave.LeaveDorm" />
+
+		<!-- 水电 -->
+		<many-to-one name="life" column="LIFE_ID" class="com.uws.domain.leave.LifeInfo" />
+		
+		<!-- 党团 -->
+		<many-to-one name="caucus" column="CAUSUS_ID" class="com.uws.domain.leave.CaucusHandle" />
+		
+		<!-- 二级学院 -->
+		<many-to-one name="college" column="COLLEGE_ID" class="com.uws.domain.leave.CollegeHandle" />
+		
+		<property name="yearId" column="HANDLE_YEAR"/>
+		
+		<property name="status" column="HANDLE_STATUS"/>
+
+	</class>
+</hibernate-mapping>

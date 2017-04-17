@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_INTEGRATE_SHEET" name="com.uws.domain.integrate.SheetModel">
+    	<id name="id" column="ID">
+      		<generator class="uuid.hex"/>
+        </id>
+    	<many-to-one column="YEAR" class="com.uws.sys.model.Dic" name="year"/>
+    	<many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    	<property name="title" column="TITLE"/>
+    	<property name="creatorName" column="CREATOR_NAME"/>
+    	<property name="fileNumber" column="FILE_NUMBER"/>
+    	<property name="uploadDate" column="UPLOAD_DATE"/>
+    	<property name="comments" column="COMMENTS"/>
+    	<property name="createTime" column="CREATE_TIME"/>
+    	<property name="updateTime" column="UPDATE_TIME"/>
+	</class>
+</hibernate-mapping>

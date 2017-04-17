@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_BASE_TEACHER" name="com.uws.domain.base.BaseTeacherModel">
+  
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="name" column="NAME"/>
+    <property name="code" column="CODE"/>
+    <many-to-one column="ORG" class="com.uws.user.model.Org" name="org"/>
+    <many-to-one column="GENDER" class="com.uws.sys.model.Dic" name="gender"/>
+    <property name="birthday" column="BIRTHDAY"  />
+    <property name="idNumber" column="ID_NUMBER"  />
+    <property name="nativePlace" column="NATIVE_PLACE"/>
+    <property name="nation" column="NATION"/>
+    <property name="studyLevel" column="STUDY_LEVEL"/>
+    <property name="degreeName" column="DEGREE_NAME"/>
+    <property name="workHireDate" column="WORK_HIRE_DATE"/>
+    <property name="status" column="STATUS"/>
+  </class>
+</hibernate-mapping>

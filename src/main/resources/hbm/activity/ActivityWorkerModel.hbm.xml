@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!-- 活动工作人员信息 -->   
+  <class table="HKY_ACTIVITY_WORKER" name="com.uws.domain.activity.ActivityWorkerModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="ACTIVITY_ID" class="com.uws.domain.activity.ActivityBaseinfoModel" name="activityPo"/>
+    <many-to-one column="WORKER_ID" class="com.uws.domain.base.BaseTeacherModel" name="workerPo"/>
+    <many-to-one column="DELETE_STATUS" class="com.uws.sys.model.Dic" name="deleteStatus"/>
+    <!-- 活动备注 --> 
+    <property name="comments" column="COMMENTS"></property>
+    <!-- 创建时间 -->   
+    <property name="createTime" column="CREATE_TIME"></property>
+    <!-- 更新时间 -->   
+    <property name="updateTime" column="UPDATE_TIME"></property>
+  </class>
+</hibernate-mapping>

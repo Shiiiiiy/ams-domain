@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_JOB_EMPLOYMENT" name="com.uws.domain.job.EmploymentInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="student" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" />
+    <property name="schoolCode"  column="SCHOOL_CODE" type="java.lang.String"/>
+    <property name="majorFrom"  column="MAJOR_FROM" type="java.lang.String"/>
+    <property name="examNumber"  column="EXAM_NUMBER" type="java.lang.String"/>
+    <property name="sourceLandCode"  column="SOURCE_LAND_CODE" type="java.lang.String"/>
+    <many-to-one name="education" column="EDUCATION" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="schoolLength" column="SCHOOL_LENGTH" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="isWork" column="IS_WORK" class="com.uws.sys.model.Dic" />
+    <many-to-one name="normalType" column="NORMAL_TYPE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="isIndependent" column="IS_INDEPENDENT" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="cultureType" column="CULTURE_TYPE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="recruitStudentType" column="RECRUIT_STUDENT_TYPE" class="com.uws.sys.model.Dic"/>
+    <property name="directional"  column="DIRECTIONAL" type="java.lang.String"/>
+    <many-to-one name="difficultType" column="DIFFICULT_TYPE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="graduationYear" column="GRADUATION_YEAR" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic"/>
+    <property name="enterDate" column="ENTER_TIME"/>
+    <property name="graduateDate" column="GRADUATE_TIME"/>
+    <property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+    <property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

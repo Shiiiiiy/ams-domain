@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_EVALUATION_INFO" name="com.uws.domain.evaluation.EvaluationInfo">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    
+    <!-- 学生-->
+    <many-to-one name="student" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel"/>
+    
+     <!-- 学年 -->
+    <many-to-one column="YEAR_ID" class="com.uws.sys.model.Dic" name="year"/>
+    
+     <!-- 学期 -->
+    <many-to-one column="TERM_ID" class="com.uws.sys.model.Dic" name="term"/>
+    
+     <!-- 月份 -->
+    <many-to-one column="MONTH_ID" class="com.uws.sys.model.Dic" name="month"/>
+    
+    <!-- 测评员-->
+    <many-to-one name="assist" column="ASSIST_ID" class="com.uws.user.model.User"/>
+    
+    <!-- 德育总分 -->
+    <property name="moralScoreSum" column="MORAL_SCORE_SUM"/>
+    
+    <!-- 智育总分 -->
+    <property name="intellectScoreSum" column="INTELLECT_SCORE_SUM"/>
+    
+    <!-- 文体总分 -->
+    <property name="cultrueScoreSum" column="CULTRUE_SCORE_SUM"/>
+    
+    <!-- 能力总分 -->
+    <property name="capacityScoreSum" column="CAPACITY_SCORE_SUM"/>
+    
+    <!-- 总分 -->
+    <property name="scoreSum" column="SCORE_SUM"/>
+    
+    <!-- 状态 -->
+    <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="status"/>
+    
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

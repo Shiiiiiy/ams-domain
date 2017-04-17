@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_EVALUATION_RECORD_DETAIL" name="com.uws.domain.evaluation.EvaluationDetail">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    
+    <!-- 测评-->
+    <many-to-one name="evaluation" column="EVALUATION_ID" class="com.uws.domain.evaluation.EvaluationInfo"/>
+    
+    <!-- 事由-->
+    <property name="reason" column="REASON"/>
+    
+    <!-- 智育总分 -->
+    <property name="score" column="SCORE"/>
+    
+    <!-- 类型-->
+    <many-to-one column="TYPE" class="com.uws.sys.model.Dic" name="type"/>
+    
+    <!--顺序号 -->
+     <property name="seqNum" column="SEQ_NUM"/>
+    
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_STUDENT_APPROVE_SET" name="com.uws.domain.integrate.StudentApproveSetModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="CLASS_ID" class="com.uws.domain.base.BaseClassModel" name="classId"/>
+    <many-to-one column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" name="studentId"/>
+    <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="status"/>
+  </class>
+</hibernate-mapping>

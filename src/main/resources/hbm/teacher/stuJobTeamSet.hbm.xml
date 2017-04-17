@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_TEACHER_SETTING" name="com.uws.domain.teacher.StuJobTeamSetModel">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 学院 -->
+		<many-to-one name="college" class="com.uws.domain.base.BaseAcademyModel"
+			column="COLLEGE_ID">
+		</many-to-one>
+		
+		<!-- 班级 -->
+		<many-to-one name="klass" class="com.uws.domain.base.BaseClassModel"
+			column="CLASS_ID">
+		</many-to-one>
+
+		<!-- 教师 -->
+		<many-to-one name="teacher" class="com.uws.domain.base.BaseTeacherModel"
+			column="TEACHER_ID"></many-to-one>
+
+		<!-- 教师类型 -->
+		<many-to-one name="teacherType" class="com.uws.sys.model.Dic"
+			column="TEACHER_TYPE"></many-to-one>
+
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_REWARD_CLASS_APPLY_INFO" name="com.uws.domain.reward.ClassApplyInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="AWARD_ID" class="com.uws.domain.reward.AwardType" name="awardTypeId"/>
+    <many-to-one column="CLASS_ID" class="com.uws.domain.base.BaseClassModel" name="classId"/>
+    <many-to-one column="APPLY_STATUS" class="com.uws.sys.model.Dic" name="applyStatus"/>
+    <many-to-one column="APPLY_SOURCE" class="com.uws.sys.model.Dic" name="applySource"/>
+    <many-to-one column="MEET_CONDITION" class="com.uws.sys.model.Dic" name="meetCondition"/>
+    <property column="BANK_ACCOUNT" type="string" name="bankAccount"  />
+    <property column="AWARD_CLASS" type="string" name="classAwardInfo"  />
+    <property column="MAIN_RESULT" type="string" name="mainResult"  />
+    <many-to-one column="NEXT_APPROVER" class="com.uws.user.model.User" name="nextApprover"/>
+    <property column="APPROVE_STATUS" type="string" name="approveStatus"  />
+    <property column="PROCESS_STATUS" type="string" name="processStatus"  />
+    <property column="APPROVE_MESSAGE" type="string" name="approveMessage"  />
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

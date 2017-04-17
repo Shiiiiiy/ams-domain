@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!-- 志愿者信息 -->   
+  <class table="HKY_VOLUNTEER_BASEINFO" name="com.uws.domain.volunteer.VolunteerBaseinfoModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <!-- 学生信息 -->  
+    <many-to-one column="STU_ID" class="com.uws.domain.orientation.StudentInfoModel" name="stuInfo"/>
+    <!-- 志愿者(注册号) -->  
+    <property name="registerNum" column="REGISTER_NUM"/>
+    <!-- 手机号 -->  
+    <property name="phoneNumber" column="PHONE_NUMBER"/>
+    <!-- QQ号 -->  
+    <property name="qqNumber" column="QQ_NUMBER"/>
+    <!-- 其他联系方式 -->  
+    <property name="otherContacts" column="OTHER_CONTACTS"/>
+    <!-- 兴趣爱好 -->  
+    <property name="hobby" column="HOBBY"/>
+    <!-- 志愿者(在校开始时间) -->  
+    <property name="beginTime" column="BEGIN_TIME"/>
+    <!-- 志愿者(在校结束时间) -->  
+    <property name="endTime" column="END_TIME"/>
+    <!-- 是否参加培训 -->  
+    <many-to-one name="isTraining" column="IS_TRAINING" class="com.uws.sys.model.Dic" />
+    <!-- 是否获得荣誉 -->  
+    <many-to-one name="isHavehonor" column="IS_HAVEHONOR" class="com.uws.sys.model.Dic" />
+    
+    <!-- 其他职务 -->  
+    <property name="otherPosition" column="OTHER_POSITION"/>
+    <property name="sketch" column="SKETCH"/>
+     <!-- 状态 -->  
+    <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="status"/>
+    <!-- 志愿者申请时间 -->  
+    <property name="applyTime" column="APPLY_TIME"/>
+    <!-- 审核人 -->
+	<many-to-one name="approverPo" column="APPROVER" class="com.uws.user.model.User" />
+	<!-- 审核时间 -->
+    <property name="approveTime" column="APPROVE_TIME"/>
+    <!-- 志愿者审批结果 -->  
+     
+    <many-to-one name="approveResult" column="APPROVE_RESULT" class="com.uws.sys.model.Dic" />
+    <!-- 志愿者审核意见(不走审批流) -->  
+    <property name="suggest" column="SUGGEST"/>
+    <!-- 修改时间 -->  
+    <property name="updateTime" column="UPDATE_TIME"/>
+    <!-- 删除状态 -->  
+    <many-to-one column="DELETE_STATUS" class="com.uws.sys.model.Dic" name="deleteStatus"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="V_JOB_POORSTUDENT_COLLEGE" name="com.uws.domain.job.PoorStudentCollegeView">
+		<composite-id>
+			<key-many-to-one name="schoolYear" column="SCHOOL_YEAR_DIC_ID" class="com.uws.sys.model.Dic"/>
+			<key-many-to-one name="college" column="COLLEGE_ID" class="com.uws.domain.base.BaseAcademyModel"/>
+		</composite-id>
+		<property name="approvePassNum" column="APPROVE_PASS_NUM"/>
+		<property name="approveRejectNum" column="APPROVE_REJECT_NUM"/>
+		<property name="total" column="TOTAL"/>
+		<property name="graduation_total" column="GRADUATION_TOTAL"/>
+		<property name="job" column="JOB"/>
+		<property name="family" column="FAMILY"/>
+		<property name="job_family" column="JOB_FAMILY"/>
+		<property name="disability" column="DISABILITY"/>
+		<property name="job_disability" column="JOB_DISABILITY"/>
+		<property name="family_disability" column="FAMILY_DISABILITY"/>
+		<property name="job_family_disability" column="JOB_FAMILY_DISABILITY"/>
+	</class>
+</hibernate-mapping>

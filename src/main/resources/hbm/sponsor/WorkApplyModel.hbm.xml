@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-19 11:59:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+  <class name="com.uws.domain.sponsor.WorkApplyModel" table="HKY_SPONSOR_WORK_APPLY" >
+        
+    <id name="workApplyId" type="string">
+         <column name="ID" length="32" />
+         <generator class="uuid.hex" />
+    </id>
+        
+	
+	<!-- 勤工助学岗位-->
+   	<many-to-one name="sponsorPosition" column="SPONSOR_POSITION_ID" class="com.uws.domain.sponsor.SponsorPositionModel" />
+	<!-- 困难生对象 -->
+	<many-to-one name="difficultStudentInfo" column="DifficultStudentInfo_ID" class="com.uws.domain.sponsor.DifficultStudentInfo" />	
+	<!-- 岗位申请单对象 -->
+	<many-to-one name="applyFile" column="APPLY_FILE_ID" class="com.uws.domain.sponsor.WorkApplyFileModel" />
+	
+	<!-- 确认日期 -->
+	<property name="confirmDate" type="java.util.Date">
+            <column name="CONFIRM_DATE" length="19" />
+    </property>
+	
+	
+	<!-- 离岗日期 -->
+	<property name="dismissDate" type="java.util.Date">
+            <column name="DISMISS_DATE" length="19" />
+    </property>
+	
+  	<!-- 状态 -->
+    <many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+    <!-- 删除状态 -->
+    <many-to-one name="delStatus" column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+   <!--岗位状态  -->
+	<many-to-one name="postStatus" column="POST_STATUS" class="com.uws.sys.model.Dic"/>
+	<!-- 下一节点办理人 -->    
+    <many-to-one name="nextApprover"  column="NEXT_APPROVER" class="com.uws.user.model.User"/>
+    <!-- 流程审批状态 -->
+    <property name="approveStatus"  column="APPROVE_STATUS" type="java.lang.String"/>
+    <!-- 流程实例状态 -->
+    <property name="processStatus"  column="PROCESS_STATUS" type="java.lang.String"/>
+	<!-- 审核意见 -->
+	<property name="approveReason" type="string">
+	           <column name="APPROVE_REASON" length="200"/>
+   	</property>
+	
+    <!-- 备注-->
+	<property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="500"/>
+    </property>
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>  
+       
+  </class>
+</hibernate-mapping>

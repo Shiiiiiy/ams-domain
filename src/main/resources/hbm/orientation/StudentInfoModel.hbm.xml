@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_STUDENT_INFO" name="com.uws.domain.orientation.StudentInfoModel">
+
+		<id name="id" column="ID">
+			<generator class="uuid.hex" />
+		</id>
+		<!-- 学号 -->
+		<property name="stuNumber" type="string">
+			<column name="STU_NUMBER" length="32">
+			</column>
+		</property>
+
+		<!-- 信息采集的登录密码(MD5标准加密) -->
+		<property name="passWord" type="string">
+			<column name="PASSWORD" length="32">
+			</column>
+		</property>
+
+		<!-- 姓名 -->
+		<property name="name" type="string">
+			<column name="NAME" length="50">
+			</column>
+		</property>
+
+		<!-- 姓名汉语拼音 -->
+		<property name="namePy" type="string">
+			<column name="NAME_PY" length="50">
+			</column>
+		</property>
+
+		<!-- 英语姓名 -->
+		<property name="englishName" type="string">
+			<column name="ENGLISH_NAME" length="50">
+			</column>
+		</property>
+
+		<!-- 曾用名 -->
+		<property name="oldName" type="string">
+			<column name="OLD_NAME" length="50">
+			</column>
+		</property>
+
+		<!-- 性别 -->
+		<many-to-one column="SEX" class="com.uws.sys.model.Dic"
+			name="genderDic" />
+
+		<!-- 证件类型 -->
+		<many-to-one column="CERTIFICATE_TYPE" class="com.uws.sys.model.Dic"
+			name="certificateTypeDic" />
+
+		<!-- 证件号码 -->
+		<property name="certificateCode" type="string">
+			<column name="CERTIFICATE_CODE" length="50">
+			</column>
+		</property>
+
+
+		<!-- 录取总分 -->
+		<property name="enterScore" column="ENTER_SCORE" type="float" />
+
+		<!-- 毕业学校 -->
+		<property name="graduation" type="string">
+			<column name="GRADUATION" length="50">
+			</column>
+		</property>
+
+		<!-- 学院 -->
+		<many-to-one column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel"
+			name="college" />
+
+		<!-- 学科 -->
+		<many-to-one column="SUBJECT" class="com.uws.sys.model.Dic"
+			name="subjectDic" />
+
+		<!-- 专业 -->
+		<many-to-one column="MAJOR" class="com.uws.domain.base.BaseMajorModel"
+			name="major" />
+
+		<!-- 班级 -->
+		<many-to-one column="CLASS_ID" class="com.uws.domain.base.BaseClassModel"
+			name="classId" />
+
+		<!-- 宿舍 -->
+		<property name="dorm" type="string">
+			<column name="DORM" length="50">
+			</column>
+		</property>
+		<!-- 政治面貌 -->
+		<many-to-one column="POLITICAL" class="com.uws.sys.model.Dic"
+			name="politicalDic" />
+
+		<!-- 民族 -->
+		<!--<many-to-one column="NATION" class="com.uws.sys.model.Dic" name="nationalDic"/> -->
+		<property name="national" type="string">
+			<column name="NATION" length="32">
+			</column>
+		</property>
+
+		<!-- 出生日期 -->
+		<property name="brithDate" type="date">
+			<column name="BIRTH_DATE" length="10">
+			</column>
+		</property>
+
+
+		<!-- 籍贯 -->
+		<many-to-one column="NATIVE" class="com.uws.sys.model.Dic"
+			name="nativeDic" />
+
+		<!-- 生源地 -->
+		<property name="sourceLand" type="string">
+			<column name="SOURCE_LAND" length="32">
+			</column>
+		</property>
+
+		<!-- 户籍地址 -->
+		<property name="nativeAdd" type="string">
+			<column name="NATIVE_ADDRESS" length="100">
+			</column>
+		</property>
+
+		<!-- 籍贯类型 -->
+		<many-to-one column="ADDRESS_TYPE" class="com.uws.sys.model.Dic"
+			name="addressTypeDic" />
+
+		<!-- 家庭地址 -->
+		<property name="homeAddress" type="string">
+			<column name="HOME_ADDRESS" length="100">
+			</column>
+		</property>
+
+		<!-- 家庭邮政编码 -->
+		<property name="homePostCode" type="string">
+			<column name="HOME_POST_CODE" length="10">
+			</column>
+		</property>
+
+		<!-- 家庭电话 -->
+		<property name="homeTel" type="string">
+			<column name="HOME_TEL" length="15">
+			</column>
+		</property>
+
+		<!-- 手机1 -->
+		<property name="phone1" type="string">
+			<column name="PHONE_1" length="15">
+			</column>
+		</property>
+
+		<!-- 手机2 -->
+		<property name="phone2" type="string">
+			<column name="PHONE_2" length="15">
+			</column>
+		</property>
+
+		<!-- 电子邮箱 -->
+		<property name="email" type="string">
+			<column name="EMAIL" length="50">
+			</column>
+		</property>
+
+		<!-- QQ -->
+		<property name="qq" type="string">
+			<column name="QQ" length="20">
+			</column>
+		</property>
+
+		<!-- url -->
+		<property name="urlStr" type="string">
+			<column name="URL" length="100">
+			</column>
+		</property>
+
+		<!-- 婚姻状况 -->
+		<many-to-one column="MARRIAGE" class="com.uws.sys.model.Dic"
+			name="marriageDic" />
+
+		<!-- 健康状况 -->
+		<many-to-one column="HEALTH_STATE" class="com.uws.sys.model.Dic"
+			name="healthStateDic" />
+
+		<!-- 港澳台侨 -->
+		<many-to-one column="OVER_CHINESE" class="com.uws.sys.model.Dic"
+			name="overChineseDic" />
+
+		<!-- 宗教信仰 -->
+		<many-to-one column="RELIGION" class="com.uws.sys.model.Dic"
+			name="religionDic" />
+
+		<!-- 血型 -->
+		<many-to-one column="BLOOD_TYPE" class="com.uws.sys.model.Dic"
+			name="bloodTypeDic" />
+
+		<!-- 开户行 -->
+		<property name="bank" type="string">
+			<column name="BANK" length="30">
+			</column>
+		</property>
+
+		<!-- 银行卡号 -->
+		<property name="bankCode" type="string">
+			<column name="BANK_CODE" length="30">
+			</column>
+		</property>
+
+		<!-- 入党申请 -->
+		<property name="partyApp" type="string">
+			<column name="PARTY_APP" length="2">
+			</column>
+		</property>
+
+		<!--党校学习 -->
+		<property name="partyStudy" type="string">
+			<column name="PARTY_STUDY" length="2">
+			</column>
+		</property>
+
+		<!-- 备注信息 -->
+		<property name="comments" type="string">
+			<column name="COMMENTS" length="1000">
+			</column>
+		</property>
+
+		<!-- 报到时间 -->
+		<property name="reportDate" type="timestamp">
+			<column name="REPORT_DATE" length="19" />
+		</property>
+
+		<!-- 报到地点 -->
+		<many-to-one column="REPORT_SITE" class="com.uws.sys.model.Dic"
+			name="reportSiteDic" />
+
+		<!--缴费状态 -->
+		<property name="costState" type="string">
+			<column name="COST_STATE" length="2">
+			</column>
+		</property>
+
+		<!--绿色通道 -->
+		<property name="greenWay" type="string">
+			<column name="GREEN_WAY" length="2">
+			</column>
+		</property>
+
+		<!--绿色通道原因 -->
+		<!--<property name="greenReason" type="string"> <column name="GREEN_REASON" 
+			length="100"> </column> </property> -->
+		<many-to-one column="GREEN_REASON" class="com.uws.sys.model.Dic"
+			name="greenReason" />
+
+		<!--撤销原因 -->
+		<property name="cancelReason" type="string">
+			<column name="CANCEL_REASON" length="100">
+			</column>
+		</property>
+
+		<!-- 入学年份 -->
+		<many-to-one column="ENTER_YEAR" class="com.uws.sys.model.Dic"
+			name="enterYearDic" />
+		<!-- <property name="enterYear" type="string"> <column name="ENTER_YEAR" 
+			length="4"> </column> </property> -->
+
+		<!-- 学籍状态 -->
+		<!-- <many-to-one column="EDUS_STATUS" class="com.uws.sys.model.Dic" name="edusStatus"/> -->
+		<property name="edusStatus" type="string">
+			<column name="EDUS_STATUS" length="4">
+			</column>
+		</property>
+
+		<!-- 状态 -->
+		<!--<many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="statusDic"/> -->
+		<property name="status" type="string">
+			<column name="STATUS" length="4">
+			</column>
+		</property>
+
+		<!-- 采集状态 -->
+		<property name="collectState" type="string">
+			<column name="COLLECT_STATE" length="4">
+			</column>
+		</property>
+
+		<!-- 创建日期 -->
+		<property name="createTime" type="timestamp">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 创建人 -->
+		<many-to-one column="CREATOR" class="com.uws.user.model.User"
+			name="creator" />
+
+		<!-- 更新日期 -->
+		<property name="updateTime" type="timestamp">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+
+		<!-- 入学日期 -->
+		<property name="enterDate" type="timestamp">
+			<column name="ENTER_DATE" length="19" />
+		</property>
+
+		<!-- 更新人 -->
+		<many-to-one column="UPDATER" class="com.uws.user.model.User"
+			name="updater" />
+
+		<!-- url -->
+		<property name="studentType" type="string">
+			<column name="STUDENT_TYPE" length="100">
+			</column>
+		</property>
+
+		<!-- 考生号 -->
+		<property name="candidateNum" type="string">
+			<column name="CANDIDATE_NUM" length="32">
+			</column>
+		</property>
+		<!-- 考生号所属省份（生源地） -->
+		<many-to-one column="CANDIDATE_PROVENCE" class="com.uws.sys.model.Dic"
+			name="candidateProvence" />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_LEAVE_INFO" name="com.uws.domain.leave.LeaveInfo">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 学生基础信息表id -->
+		<many-to-one name="student" column="STUDENT_ID"
+			class="com.uws.domain.orientation.StudentInfoModel" />
+
+		<!-- 办理年份 -->
+		<property name="year" column="YEAR_ID" />
+
+		<!-- 图书馆办理状态 -->
+		<many-to-one name="library" column="LIBRARY" class="com.uws.sys.model.Dic" />
+
+		<!-- 教务处办理状态 -->
+		<many-to-one name="edu" column="EDU" class="com.uws.sys.model.Dic" />
+
+		<!-- 宿舍办理状态 -->
+		<many-to-one name="dorm" column="DORM" class="com.uws.sys.model.Dic" />
+
+		<!-- 财务部办理状态 -->
+		<many-to-one name="finance" column="FINANCE" class="com.uws.sys.model.Dic" />
+
+		<!-- 二级学院办理状态 -->
+		<many-to-one name="college" column="COLLEGE" class="com.uws.sys.model.Dic" />
+		
+		<!--党团关系办理状态 -->
+		<many-to-one name="caucus" column="CAUCUS" class="com.uws.sys.model.Dic" />
+
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

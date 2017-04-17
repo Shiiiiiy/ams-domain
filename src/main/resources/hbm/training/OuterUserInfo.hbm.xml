@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_TRAINING_OUTERUSER_INFO" name="com.uws.domain.training.OuterUserInfo">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 用户姓名 -->
+		<property name="userName" type="string">
+			<column name="USER_NAME" length="32">
+			</column>
+		</property>
+
+		<!-- 用户编码 -->
+		<property name="userCode" type="string">
+			<column name="USER_CODE" length="32">
+			</column>
+		</property>
+
+		<!-- 性别 -->
+		<many-to-one name="gender" column="GENDER" class="com.uws.sys.model.Dic" />
+
+		<!-- 单位 -->
+		<property name="unit" type="string">
+			<column name="UNIT" length="32">
+			</column>
+		</property>
+
+		<!-- 职位 -->
+		<property name="duty" type="string">
+			<column name="DUTY" length="32">
+			</column>
+		</property>
+
+		<!-- 用户简介 -->
+		<property name="userProfile" type="string">
+			<column name="USER_PROFILE" length="1000">
+			</column>
+		</property>
+
+		<!-- 用户类型 -->
+		<many-to-one name="userType" column="USER_TYPE"
+			class="com.uws.sys.model.Dic" />
+		
+		<!-- 参与项目 -->	
+		<property name="participateProjectStr" type="string">
+			<column name="PARTICIPATE_PROJECT" length="100">
+			</column>
+		</property>	
+		
+		<!-- 用户信息启用状态 -->
+		<many-to-one name="userStatus" column="USER_STATUS" class="com.uws.sys.model.Dic"/>
+
+		<!-- 手机号码 -->
+		<property name="phoneNum" type="string">
+			<column name="PHONE_NUM" length="1000">
+			</column>
+		</property>
+
+		<!-- 邮箱 -->
+		<property name="email" type="string">
+			<column name="EMAIL"></column>
+		</property>
+
+		<!-- 创建人 -->
+		<many-to-one name="creator" column="CREATOR"
+			class="com.uws.user.model.User" />
+
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

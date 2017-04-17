@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_RESPONDENT" name="com.uws.domain.question.QuestionNaireRespondentModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+	<property name="userName" type="java.lang.String">
+		<column name="USER_NAME" length="100" />
+	</property>
+    <many-to-one name="questionNairePo"  column="QUESNAIRE_ID" class="com.uws.domain.question.QuestionInfoModel"/>
+    <many-to-one name="respondent"  column="USER_ID" class="com.uws.user.model.User"/>
+    <property name="userType"  column="USER_TYPE" type="java.lang.String"/>
+	<many-to-one name="delStatusDic"  column="DELETE_STATUS" class="com.uws.sys.model.Dic"/>
+  </class>
+</hibernate-mapping>

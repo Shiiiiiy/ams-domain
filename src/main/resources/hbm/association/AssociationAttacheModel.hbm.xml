@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_ASSOCIATION_ATTACHE" name="com.uws.domain.association.AssociationAttacheModel">
+    <id name="id" column="ID">
+      <generator class="assigned"/>
+    </id>
+    <many-to-one column="OBJECT_ID"   name="applyPo" class="com.uws.domain.association.AssociationApplyModel"/>
+    <property column="ATTACHE_TYPE" name="attacheType"/>
+    <many-to-one column="ATTACHE_ID"   name="attachePo" class="com.uws.sys.model.UploadFileRef"/>
+    <property column="CREATE_TIME" name="createTime"  type="java.util.Date"/>
+    <property column="UPDATE_TIME" name="updateTime"  type="java.util.Date"/>
+    <many-to-one column="DELETE_STATUS"   name="deleteStatus" class="com.uws.sys.model.Dic"/>
+  </class>
+</hibernate-mapping>

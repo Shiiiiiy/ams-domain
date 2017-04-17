@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="HKY_SPONSOR_WORK_HOUR" name="com.uws.domain.sponsor.WorkHourModel">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<many-to-one name="studentId" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel"/>
+		<many-to-one name="sponsorPosition" column="SPONSOR_POSITION" class="com.uws.domain.sponsor.SponsorPositionModel"/>
+		<many-to-one name="orgWorkHour" column="ORG_WORKHOUR_ID" class="com.uws.domain.sponsor.OrgWorkHourModel"/>
+		<property name="workHour" column="WORK_HOUR" type="java.lang.String" length="10"/>
+		<property name="cardNum" column="CARD_NUM" type="java.lang.String" length="20"/>
+		<property name="agreementNum" column="AGREEMENT_NUM" type="java.lang.String" length="32"/>
+		<property name="totalSalary" column="TOTAL_SALARY" type="java.lang.Double"/>
+		<property name="workSalary" column="WORK_SALARY" type="java.lang.Double"/>
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+		<property name="comments" column="COMMENTS" type="java.lang.String" length="300"/>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>

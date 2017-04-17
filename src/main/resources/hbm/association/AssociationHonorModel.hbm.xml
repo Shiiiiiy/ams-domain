@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_ASSOCIATION_HONOR" name="com.uws.domain.association.AssociationHonorModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="MEMBER" name="member" class="com.uws.domain.association.AssociationMemberModel"/>
+    <property column="HONOR_NAME" name="honorName"/>
+    <property column="HONOR_TIME" name="honorTime"/>
+    <many-to-one column="LEAGUE_ID"   name="associationPo" class="com.uws.domain.association.AssociationBaseinfoModel"/>
+    <many-to-one column="HONOR_LEVEL" name="honorLevel" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="HONOR_YEAR" name="honorYear" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="HONOR_TERM" name="honorTerm" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="OPERATE_STATUS" name="operateStatus" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="APPROVE_RESULT" name="approveResult" class="com.uws.sys.model.Dic"/>
+    <!-- 志愿者审核意见(不走审批流) -->  
+    <property name="suggest" column="SUGGEST"/>
+    <property column="CREATE_TIME" name="createTime"  type="java.util.Date"/>
+    <property column="UPDATE_TIME" name="updateTime"  type="java.util.Date"/>
+    <property column="COMMENTS" name="comments"/>
+    <many-to-one column="DELETE_STATUS" name="deleteStatus" class="com.uws.sys.model.Dic"/>
+  </class>
+</hibernate-mapping>

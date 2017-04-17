@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!-- 志愿者信息 -->   
+  <class table="V_VOLUNTEER_SUMMARY_INFO" name="com.uws.domain.volunteer.VolunteerSummaryInfoModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <!-- 学院 -->  
+    <many-to-one column="COLLEGEID" class="com.uws.domain.base.BaseAcademyModel" name="college"/>
+    <!-- 志愿者总人数 -->
+    <property name="volunteerNums" type="int">
+            <column name="VOLUNTEERNUMS"/>
+    </property>
+    <!-- 参加培训总人数 -->
+    <property name="trainingNums" type="int">
+            <column name="TRAININGNUMS"/>
+    </property> 
+    <!-- 获得荣誉总人数 -->
+    <property name="honorNums" type="int">
+            <column name="HONORNUMS"/>
+    </property> 
+    <!-- 参加服务活动总人数 -->
+    <property name="serviceNums" type="int">
+            <column name="SERVICENUMS"/>
+    </property>
+    <!-- 参加服务时长 -->
+    <property name="serviceHourNums" type="double">
+            <column name="SERVICEHOURNUMS"/>
+    </property> 
+    </class>
+</hibernate-mapping>

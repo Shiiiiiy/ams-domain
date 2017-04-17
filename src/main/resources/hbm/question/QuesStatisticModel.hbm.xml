@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="V_STATISTIC_QUES_ANSWERNUM" name="com.uws.domain.question.QuesStatisticModel">
+    <id name="optionId" type="java.lang.String">
+	    <column name="OPTION_ID" length="32" />
+	    <generator class="identity"/>
+    </id>
+
+    <property name="optionName" column="OPTION_NAME" />
+    <property name="optionCode" column="OPTION_CODE" />
+    <property name="itemName" column="ITEM_NAME" />
+    
+    <many-to-one name="item" column="ITEM_ID" class="com.uws.domain.question.QuestionItemModel" />
+    <many-to-one name="question" column="QUESNAIRE_ID" class="com.uws.domain.question.QuestionInfoModel" />
+    <many-to-one name="answer" column="RESPONDENT" class="com.uws.user.model.User"/>
+    <many-to-one name="itemType" column="ITEM_TYPE" class="com.uws.sys.model.Dic" />
+  </class>
+</hibernate-mapping>

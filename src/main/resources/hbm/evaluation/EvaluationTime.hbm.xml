@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_EVALUATION_TIME" name="com.uws.domain.evaluation.EvaluationTime">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    
+    <!-- 学院 -->
+    <many-to-one column="COLLEGE_ID" class="com.uws.domain.base.BaseAcademyModel" name="college"/>
+    
+    <!-- 辅导员 -->
+    <many-to-one name="instructor" column="INSTRUCTOR_ID" class="com.uws.user.model.User"/>
+    
+    <!-- 月份 -->
+    <many-to-one column="MONTH" class="com.uws.sys.model.Dic" name="month"/>
+    
+    <!-- 编辑者 -->
+    <many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User"/>
+    
+    <property name="addStartTime" type="timestamp">
+        <column name="ADD_START_TIME" length="19" />
+    </property>
+    
+    <property name="addEndTime" type="timestamp">
+        <column name="ADD_END_TIME" length="19" />
+    </property>
+    
+    <property name="updateStartTime" type="timestamp">
+        <column name="UPDATE_START_TIME" length="19" />
+    </property>
+    
+    <property name="updateEndTime" type="timestamp">
+        <column name="UPDATE_END_TIME" length="19" />
+    </property>
+    
+    <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="status"/>
+    
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

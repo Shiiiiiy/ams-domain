@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_ASSOCIATION_ADVISOR" name="com.uws.domain.association.AssociationAdvisorModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property column="PHONE" name="phone"/>
+    <many-to-one column="LEAGUE_ID" name="associationPo" class="com.uws.domain.association.AssociationBaseinfoModel"/>
+    <many-to-one column="LEAGUE_APPLY_ID" name="associationApplyModel" class="com.uws.domain.association.AssociationApplyModel"/>
+    <many-to-one column="ADVISOR" name="advisorPo" class="com.uws.domain.base.BaseTeacherModel"/>
+    <property column="COMMENTS" name="comments"/>
+    <property column="STATUS" name="status"/>
+    <many-to-one column="DELETE_STATUS" name="deleteStatus" class="com.uws.sys.model.Dic" />
+    <property column="CREATE_TIME" name="createTime"  type="java.util.Date"/>
+    <property column="UPDATE_TIME" name="updateTime"  type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

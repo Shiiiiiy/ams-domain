@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="v_job_poorstudent_difficult" name="com.uws.domain.job.PoorStudentDifficultView">
+	<id name="id" column="SQ" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="pId"  column="ID" type="java.lang.String"/>
+    <many-to-one name="difficultStudentInfo" column="DIFFICULT_STUDENT" class="com.uws.domain.sponsor.DifficultStudentInfo" />
+    <many-to-one name="studentInfo" column="STUDENT_INFO" class="com.uws.domain.orientation.StudentInfoModel"/>
+    <many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="difficultType" column="DIFFICULT_TYPE" class="com.uws.sys.model.Dic"/>
+    <property name="reason"  column="REASON" type="java.lang.String"/>
+    <property name="difficultId"  column="DIFFICULTID" type="java.lang.String"/>
+    <many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+	</class>
+</hibernate-mapping>

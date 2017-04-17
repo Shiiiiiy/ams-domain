@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_BASE_STUDENT_ROOM" name="com.uws.domain.base.StudentRoomModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="bedNumber" column="BED_NUM"/>
+    <many-to-one column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" name="student"/>
+    <many-to-one column="BUILDIND_ID" class="com.uws.domain.base.BaseBuildingModel" name="building"/>
+    <many-to-one column="ROOM_ID" class="com.uws.domain.base.BaseRoomModel" name="room"/>
+  </class>
+</hibernate-mapping>

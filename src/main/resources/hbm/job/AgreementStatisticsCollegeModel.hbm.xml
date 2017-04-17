@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.uws.domain.job.AgreementStatisticsCollegeModel" table="V_JOB_AGREEMENT_COLLEGE_COUNT" >
+		<composite-id>
+			<key-many-to-one name="employmentYear" column="EMPLOYMENT_YEAR" class="com.uws.sys.model.Dic"/>
+			<key-many-to-one name="college" column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel"/>
+		</composite-id>
+		<property name="submit" column="SUBMIT"/>
+		<property name="pass" column="PASS"/>
+		<property name="refuse" column="REFUSE" />
+		<property name="total" column="TOTAL" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.uws.domain.sponsor.OriginLoanModel" table="HKY_SPONSOR_ORIGIN_LOAN" >
+	<id name="id" column="ID" length="32">
+		<generator class="uuid.hex" />
+	</id>
+	<many-to-one name="studentInfo" column="STUDENT_ID"  class="com.uws.domain.orientation.StudentInfoModel"/>
+	<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+	<many-to-one name="loanYear" column="LOAN_YEAR" class="com.uws.sys.model.Dic"/>
+	<property name="loanBank" column="LOAN_BANK"/>
+	<property name="countLoan" column="COUNT_LOAN"/>
+	<property name="contractAmount" column="CONTARCT_AMOUNT"/>
+	<property name="paymentAmount" column="PAYMENT_AMOUNT"/>
+	<property name="enterYear" column="ENTER_YEAR" />
+	<property name="graduationDate" column="GRADUATION_DATE"  />
+	<property name="createTime" column="CREATE_TIME"/>
+	<property name="updateTime" column="UPDATE_TIME"/>
+	<property name="comments" column="COMMENTS"/>
+  </class>
+</hibernate-mapping>

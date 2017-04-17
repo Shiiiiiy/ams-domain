@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_WARNING_BEHAVIOR" name="com.uws.domain.warning.WarningBehaviorModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+	<many-to-one column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel" name="student"/>
+    <property name="warningDate" column="WARNING_DATE"/>
+    <property name="warningTime" column="WARNING_TIME"/>
+    <property name="warningLocation" column="WARNING_LOCATION"/>
+    <property name="warningInfo" column="WARNING_INFO"/>
+    <property name="comments" column="COMMENTS"/>
+    <property name="createTime" column="CREATE_TIME"/>
+    <property name="updateTime" column="UPDATE_TIME"/>
+  </class>
+</hibernate-mapping>

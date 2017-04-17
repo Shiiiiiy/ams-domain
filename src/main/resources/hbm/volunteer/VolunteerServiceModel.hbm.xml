@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!-- 志愿者服务信息 -->   
+  <class table="HKY_VOLUNTEER_SERVICE" name="com.uws.domain.volunteer.VolunteerServiceModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <!-- 服务日期 -->   
+    <property name="serviceDate" type="java.util.Date">
+            <column name="SERVICE_DATE" length="19" />
+    </property>
+    <!-- 服务时长 -->  
+    <property name="serviceHour" type="java.lang.Double">
+            <column name="SERVICE_HOUR" />
+    </property>
+     <!-- 服务人数 -->  
+    <property name="serviceStuNums" type="int">
+            <column name="SERVICE_STU_NUMS" />
+    </property>
+    <!-- 服务记录 -->
+    <property name="serviceRecord" type="java.lang.String">
+            <column name="SERVICE_RECORD" length="500"/>
+    </property>
+    <!-- 删除状态 -->   
+    <many-to-one column="DELETE_STATUS" class="com.uws.sys.model.Dic" name="deleteStatus"/>
+   
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>  
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.uws.domain.league.LeagueMemberStatisticModel" table="V_LEAGUE_INFO_STATISTIC" >
+    <id name="id" type="string">
+       <column name="ID" length="32" />
+       <generator class="uuid.hex" />
+    </id>
+
+	  <!-- 学院 -->
+     <many-to-one  name="college" column="COLLEGE_ID" class="com.uws.domain.base.BaseAcademyModel" />
+    <property name="membernums" column="MEMBERNUMS"/>
+    <property name="honurnums" column="HONURNUMS"/>
+	
+	<property name="trainingnums" column="TRAININGNUMS"/>
+	<property name="recommendnums" column="RECOMMENDNUMS"/>
+	
+  </class>
+</hibernate-mapping>

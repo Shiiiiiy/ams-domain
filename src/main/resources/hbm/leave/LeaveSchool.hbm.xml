@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_LEAVE_SCHOOL_INFO" name="com.uws.domain.leave.LeaveSchool">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 学生基础信息表id -->
+		<many-to-one name="student" column="STUDENT_ID"
+			class="com.uws.domain.orientation.StudentInfoModel" />
+
+		<!-- 办理年份 -->
+		<property name="year" column="YEAR" />
+
+		<!-- 图书馆办理状态 -->
+		<property name="library" column="LIBRARY" />
+		
+		<!-- 图书馆借书数量 -->
+		<property name="bookCount" column="BOOK_COUNT" />
+		
+		<!-- 宿舍办理状态 -->
+		<property name="dorm" column="DORM" />
+
+		<!-- 财务办理状态 -->
+		<property name="finance" column="FINANCE" />
+		
+		<!-- 财务余额 -->
+		<property name="balance" column="BALANCE" />
+		
+		<!-- 党团关系办理状态 -->
+		<property name="caucus" column="CAUCUS" />
+		
+		<!-- 二级学院办理状态 -->
+		<property name="college" column="COLLEGE" />
+
+		<!-- 保卫处办理状态 -->
+		<property name="security" column="SECURITY" />
+		
+		<!-- 学生离校办理状态 -->
+		<property name="status" column="STATUS" />
+		
+		<!-- 一卡通办理状态 -->
+		<property name="oneCard" column="ONECARD" />
+		
+		<!-- 学生毕业状态 -->
+		<property name="graduateStatus" column="BY_STATUS" />
+		
+		<!-- 学生离校缘由 -->
+		<property name="reason" column="REASON" />
+		
+		<!-- 创建时间 -->
+		<property name="startDate" type="java.util.Date">
+			<column name="START_DATE" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="endDate" type="java.util.Date">
+			<column name="END_DATE" length="19" />
+		</property>
+		
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_STUDENT_ARMY_INFO" name="com.uws.domain.integrate.StudentArmyInfoModel">
+   	
+     <id name="id" column="ID">
+        <generator class="uuid.hex"/>
+     </id>
+     
+     <!-- 学生id -->
+     <many-to-one column="STUDENT" class="com.uws.domain.orientation.StudentInfoModel" name="student"></many-to-one>
+     
+     <!-- 学生类别 -->
+     <!-- <many-to-one column="STU_CATEGORY" class="com.uws.sys.model.Dic" name="stuCategory"/>
+       -->
+     <property name="stuCategory" type="string">
+            <column name="STU_CATEGORY" length="30" />
+     </property> 
+     <!-- 最后学历 -->
+     <property name="degrees" type="string">
+            <column name="DEGREES" length="30" />
+     </property> 
+     <!-- 入学时间--> 
+     <property name="entranceDate" type="string">
+            <column name="ENTRANCE_DATE" length="30" />
+     </property>     
+     
+     <!-- 毕业时间--> 
+     <property name="graduationDate" type="string">
+            <column name="GRADUATION_DATE" length="30" />
+     </property>
+     
+     <!-- 参军时间--> 
+     <property name="armyDate" type="string">
+            <column name="ARMY_DATE" length="30" />
+     </property>
+     
+     <!-- 应缴学费--> 
+     <property name="tuitionFees" type="float">
+            <column name="TUITION_FEES" />
+     </property>
+     
+     <!-- 实缴学费--> 
+     <property name="paidFees" type="float">
+            <column name="PAID_FEES" />
+     </property>
+     
+     <!-- 贷款金额--> 
+     <property name="loanAmount" type="float">
+            <column name="LOAN_AMOUNT" />
+     </property>
+     
+     <!-- 学费补偿金额--> 
+     <property name="compensationAmount" type="float">
+            <column name="COMPENSATION_AMOUNT"/>
+     </property>
+     
+     <!-- 贷款代偿金额小计--> 
+     <property name="loanCount" type="float">
+            <column name="LOAN_COUNT"/>
+     </property>
+     
+     <!-- 贷款代偿金额本金--> 
+     <property name="loanPrincipal" type="float">
+            <column name="LOAN_PRINCIPAL"/>
+     </property>
+     
+     <!-- 退役复学学费资助--> 
+     <property name="supportFees" type="float">
+            <column name="SUPPORT_FEES" />
+     </property>
+     
+     <!-- 备注  -->    
+     <property name="remark" type="string">
+            <column name="REMARK" length="200" />
+     </property>
+     </class>
+</hibernate-mapping>

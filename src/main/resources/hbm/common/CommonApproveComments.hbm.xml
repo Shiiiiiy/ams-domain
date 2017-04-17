@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_COMMON_APPROVE_COMMENTS" name="com.uws.domain.common.CommonApproveComments">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="objectId" column="OBJECT_ID"  type="java.lang.String"/>
+    <many-to-one name="approver" column="APPROVER" class="com.uws.user.model.User"/>
+    <property name="approveOpinion" column="APPROVE_OPINION"  type="java.lang.String"/>
+    <property name="approveComments" column="APPROVE_COMMENTS"  type="java.lang.String"/>
+    <property name="approveTime" column="APPROVE_TIME" type="java.util.Date"/>
+    <many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User" />
+  </class>
+</hibernate-mapping>

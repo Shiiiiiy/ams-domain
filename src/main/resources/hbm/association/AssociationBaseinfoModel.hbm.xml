@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_ASSOCIATION_BASEINFO" name="com.uws.domain.association.AssociationBaseinfoModel">
+    <id name="id" column="ID">
+      <generator class="assigned"/>
+    </id>
+    <property column="LEAGUE_CODE" name="associationCode"/>
+    <property column="LEAGUE_NAME" name="associationName"/>
+    <property column="LEAGUE_NAME_REGISTER" name="associationRegisterName"/>
+    <property column="LEAGUE_AIM" name="associationAim"/>
+    <property column="APPLY_TIME" name="applyTime" type="java.util.Date"/>
+    <property column="MODIFY_TIME" name="modifyTime"/>
+    <property column="LEAGUE_MEMBERS" name="memberNums" type="java.lang.Integer"/>
+    <property column="HONOR_RATING" name="honorRating"/>
+    <property column="LEAGUE_FEE" name="associationFee" type="java.lang.Double"/>
+    <many-to-one column="PROPRIETER" name="proprieter" class="com.uws.domain.orientation.StudentInfoModel"/>
+    <many-to-one column="PROPRIETER_REGISTER" name="proprieterRegister" class="com.uws.domain.orientation.StudentInfoModel"/>
+    <many-to-one column="COLLEGE" name="college" class="com.uws.domain.base.BaseAcademyModel"/>
+    <many-to-one column="LEAGUE_TYPE" name="associationType" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="LEAGUE_TYPE_REGISTER" name="associationRegisterType" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_TOPTEN" name="isTopten" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_MAJOR" name="isMajor" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_MAJOR_REGISTER" name="isMajorRegister" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_PAY" name="isPay" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_CANCEL" name="isCancel" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_FORCE_CANCEL" name="isForceCancel" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_VALID" name="isValid" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="IS_OPEN" name="isOpen" class="com.uws.sys.model.Dic"/>
+    <many-to-one column="OPEN_SCOPE" name="openScope" class="com.uws.sys.model.Dic"/>
+    <property column="MAJOR_IDS" name="majorIds"/>
+    <property column="MAJOR_NAMES" name="majorNames"/>
+    <many-to-one column="CREATOR" name="creator" class="com.uws.user.model.User"/>
+    <property column="COMMENTS" name="comments"/>
+    <property column="CREATE_TIME" name="createTime" type="java.util.Date"/>
+    <property column="UPDATE_TIME" name="updateTime" type="java.util.Date"/>
+    <many-to-one column="DELETE_STATUS"   name="deleteStatus" class="com.uws.sys.model.Dic" />
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_ASSOCIATION_TEMP_USER" name="com.uws.domain.association.AssociationTempUserModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="OBJECT_ID" name="associationPo" class="com.uws.domain.association.AssociationBaseinfoModel"/>
+    <property column="USER_TYPE" name="userType"/>
+    <property column="USER_ID" name="userId"/>
+    <property column="ADVISOR_COMMENTS" name="comments"/>
+    <property column="CREATE_TIME" name="createTime"  type="java.util.Date"/>
+    <property column="UPDATE_TIME" name="updateTime"  type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

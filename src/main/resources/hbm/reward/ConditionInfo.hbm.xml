@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_REWARD_CONDITION_INFO" name="com.uws.domain.reward.ConditionInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="CONDITION_ID" class="com.uws.domain.reward.AwardCondition" name="conditionId"/>
+    <property column="CONDITION_NAME" type="string" name="conditionName"  />
+    <property column="CONDITION_VALUE" type="string" name="conditionValue"  />
+    <property column="TEXT_NAME" type="string" name="textName"  />
+    <property column="COMPARE_METHOD" type="string" name="compareMethod"  />
+    <property column="CHECK_OR_NOT" type="string" name="checkOrNot"  />
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

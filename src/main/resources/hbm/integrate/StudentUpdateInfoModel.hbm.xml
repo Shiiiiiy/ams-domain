@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_STUDENT_UPDATE_INFO" name="com.uws.domain.integrate.StudentUpdateInfoModel">
+   	
+     <id name="id" column="ID">
+      <generator class="assigned"/>
+     </id>
+     <!-- 学号 -->
+     <many-to-one column="STUDENT_NUM" class="com.uws.domain.orientation.StudentInfoModel" name="stuId"/>
+     
+     <!-- <property name="stuNumber" type="string">
+            <column name="STUDENT_NUM" length="32">
+            </column>
+     </property> -->
+    
+     <!-- 姓名 -->   
+     <property name="name" type="string">
+            <column name="NAME" length="50">
+            </column>
+     </property>
+    
+     <!-- 姓名拼音 -->   
+     <property name="namePy" type="string">
+            <column name="NAME_PY" length="50">
+            </column>
+     </property>
+    
+     <!-- 曾用名 -->   
+     <property name="oldName" type="string">
+            <column name="USED_NAME" length="50">
+            </column>
+     </property>
+     
+     <!-- 英文名 -->   
+     <property name="englishName" type="string">
+            <column name="ENGLISH_NAME" length="50">
+            </column>
+     </property>
+    
+     <!-- 性别 -->
+     <many-to-one column="SEX" class="com.uws.sys.model.Dic" name="genderDic"/>
+    
+     <!-- 证件类型 -->
+     <many-to-one column="CERTIFICATE_TYPE" class="com.uws.sys.model.Dic" name="certificateTypeDic"/>
+    
+     <!-- 证件号码 -->   
+     <property name="certificateCode" type="string">
+            <column name="CERTIFICATE_NUM" length="50">
+            </column>
+     </property>
+  
+     <!-- 民族-->
+    <property name="national" type="string">
+            <column name="NATION_CODE" length="50">
+            </column>
+     </property>
+     <!-- 出生日期 -->  
+     <property name="brithDate" type="date">
+            <column name="BIRTH_DATE" length="10">
+            </column>
+     </property>
+      
+     <!-- 籍贯-->
+          <many-to-one column="NATIVE_PLACE" class="com.uws.sys.model.Dic" name="nativeDic"/> 
+     
+     <!-- 户籍类型-->
+     <many-to-one column="ACCOUNT_TYPE" class="com.uws.sys.model.Dic" name="addressTypeDic"/> 
+       
+     <!-- 户籍地址-->  
+     <property name="nativeAdd" type="string">
+            <column name="ACCOUNT_ADDR" length="100">
+            </column>
+     </property> 
+        
+     <!-- 邮编-->  
+     <property name="homePostCode" type="string">
+            <column name="POST_CODE" length="10">
+            </column>
+     </property>
+
+     <!-- 家庭地址-->  
+     <property name="homeAddress" type="string">
+            <column name="HOME_ADDR" length="100">
+            </column>
+     </property> 
+    
+     <!-- 家庭电话-->  
+     <property name="homeTel" type="string">
+            <column name="HOME_PHONE" length="15">
+            </column>
+     </property>
+    
+     <!-- 常用手机-->  
+     <property name="phone1" type="string">
+            <column name="USUAL_TELPHONE" length="15">
+            </column>
+     </property>
+    
+     <!-- 备用手机-->  
+     <property name="phone2" type="string">
+            <column name="BACKUP_TELPHONE" length="15">
+            </column>
+     </property>
+    
+     <!-- 邮箱-->  
+     <property name="email" type="string">
+            <column name="EMAIL" length="50">
+            </column>
+     </property>
+    
+     <!-- QQ号码-->  
+     <property name="qq" type="string">
+            <column name="QQ_NUM" length="20">
+            </column>
+     </property>
+  
+     <!-- 宗教信仰-->
+     <many-to-one column="RELIGION" class="com.uws.sys.model.Dic" name="religionDic"/> 
+     
+     <!-- 血型-->
+     <many-to-one column="BLOOD_TYPE" class="com.uws.sys.model.Dic" name="bloodTypeDic"/> 
+     
+     <!-- 开户行-->
+    <property name="bank" type="string">
+            <column name="BANK" length="30">
+            </column>
+    </property>
+    
+     <!-- 银行卡号-->
+    <property name="bankCode" type="string">
+            <column name="BANK_CODE" length="30">
+            </column>
+    </property>
+    
+     <!-- 状态-->
+    <!--<many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="statusDic"/> -->
+    <property name="status" type="string">
+            <column name="STATUS" length="30">
+            </column>
+    </property>
+    
+    <!-- 创建人-->
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    
+    <!-- 创建时间-->    
+    <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <!-- 更新时间-->    
+    <property name="updateTime" type="timestamp">
+            <column name="UPDATE_TIME" length="19" />
+    </property>
+    
+     <!-- 下一节点办理人-->
+    <many-to-one column="NEXT_APPROVER" class="com.uws.user.model.User" name="nextApprover"/>
+  
+    <!-- 流程审批状态-->
+    <property name="approveStatus" type="string">
+            <column name="APPROVE_STATUS" length="50">
+            </column>
+    </property> 
+    <!-- 流程实例状态-->
+    <property name="processStatus" type="string">
+            <column name="PROCESS_STATUS" length="50">
+            </column>
+    </property>
+    <!-- 审核意见 -->
+    <property name="approveReason" type="string">
+            <column name="APPROVE_REASON" length="500">
+            </column>
+    </property>
+  </class>
+</hibernate-mapping>

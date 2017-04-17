@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_ASSOCIATION_APPLY_INFO" name="com.uws.domain.association.AssociationApplyModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="LEAGUE_ID" name="associationPo" class="com.uws.domain.association.AssociationBaseinfoModel"/>
+    <many-to-one column="APPLY_TYPE" name="applyTypeDic" class="com.uws.sys.model.Dic" />
+    <property column="APPLY_REASON" name="applyReason"/>
+    <property column="FINANCIAL_COMMENTS" name="financialComments"/>
+    <property column="APPLY_STATUS" name="applyStatus"/>
+    <property column="OPERATE_STATUS" name="operateStatus"/>
+    <property column="MODIFY_ITEM" name="modifyItem"/>
+    <property column="OTHER_MODIFY_ITEM" name="otherModifyItem"/>
+    <property column="SUGGEST" name="suggest" />
+    <property column="PROCESSSTATUS" name="processstatus"/>
+    <property column="APPROVERESULT" name="approveresult"/>
+    <many-to-one column="NEXTAPPROVER" name="nextapprover" class="com.uws.user.model.User" />
+    <many-to-one column="INITIATOR" name="initiator" class="com.uws.user.model.User" />
+    <many-to-one column="CREATOR" name="creator" class="com.uws.user.model.User" />
+    <property column="CREATE_TIME" name="createTime"  type="java.util.Date"/>
+    <property column="UPDATE_TIME" name="updateTime"  type="java.util.Date"/>
+    <property column="COMMENTS" name="comments"/>
+    <many-to-one column="DELETE_STATUS" name="deleteStatus" class="com.uws.sys.model.Dic" />
+    
+    <property column="MEMBER_ID" name="memberId"/>
+    
+    <property column="ORGIN_MANAGER_ID" name="orignManagerId"/>
+	<property column="ORGIN_MANAGER_NAME" name="orignManagerName"/>
+	<property column="CHANGED_MANAGER_ID" name="changedManagerId"/>
+	<property column="CHANGED_MANAGER_NAME" name="changedManagerName"/>
+	
+	<property column="ORGIN_ADVISOR_ID" name="orignAdvisorId"/>
+	<property column="ORGIN_ADVISOR_NAME" name="orignAdvisorName"/>
+	<property column="CHANGED_ADVISOR_ID" name="changedAdvisorId"/>
+	<property column="CHANGED_ADVISOR_NAME" name="changedAdvisorName"/>
+	
+	<property column="ORGIN_ASSOCIATION_NAME" name="orignAssociationName"/>
+	<property column="CHANGED_ASSOCIATION_NAM" name="changedAssociationName"/>
+	
+	<many-to-one column="ORGIN_ASSOCIATION_TYPE" name="orignAssociationType" class="com.uws.sys.model.Dic" />
+    <many-to-one column="CHANGED_ASSOCIATION_TYPE" name="changedAssociationType" class="com.uws.sys.model.Dic" />
+	<many-to-one column="ORGIN_IS_MAJOR" name="orignIsMajor" class="com.uws.sys.model.Dic" />
+    <many-to-one column="CHANGED_IS_MAJOR" name="changedIsMajor" class="com.uws.sys.model.Dic" />
+    
+     <property column="APPLY_DATE" name="applyDate" type="java.util.Date"/>
+     <many-to-one column="COLLEGE" name="college" class="com.uws.domain.base.BaseAcademyModel"/>
+     <property column="LEAGUE_AIM" name="associationAim"/>
+     <property column="LEAGUE_FEE" name="associationFee" type="java.lang.Double"/>
+     <many-to-one column="IS_OPEN" name="isOpen" class="com.uws.sys.model.Dic" />
+     <many-to-one column="OPEN_SCOPE" name="openScope" class="com.uws.sys.model.Dic" />
+     
+     <property column="MAJOR_ID" name="majorId"/>
+	 <property column="MAJOR_NAME" name="majorName"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_LEAVE_CAUSUS" name="com.uws.domain.leave.CaucusHandle">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="IntroductionLetterCode" column="INTRODUCTION_LETTER_CODE" />
+		<property name="caucusKind" column="CAUCUS_KIND" />
+		<property name="caucusType" column="CAUCUS_TYPE" />
+		<property name="partyFeeDateStr" column="PARTY_FEE_DATE" />
+		<property name="acceptedBranchName" column="ACCEPTED_BRANCH_NAME" />
+		<property name="transferDateStr" column="TRANSFER_DATE" />
+		<property name="contactPhone" column="CONTACT_PHONE" />
+		<property name="receipt" column="RECEIPT" />
+		<property name="branchName" column="BRANCH_NAME" />
+		<property name="comments" column="COMMENTS" />
+		<many-to-one name="yearDic" column="YEAR" class="com.uws.sys.model.Dic" />
+		<!-- 学生基础信息表id -->
+		<many-to-one name="student" column="STUDENT" class="com.uws.domain.orientation.StudentInfoModel" />
+		<!-- 党团关系办理状态 -->
+		<many-to-one name="handleStatus" column="HANDLE_STATUS" class="com.uws.sys.model.Dic" />
+		<!-- 创建人 -->
+		<many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User" />
+		<!-- 创建人 -->
+		<many-to-one name="updator" column="UPDATOR" class="com.uws.user.model.User" />
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date" column="CREATE_TIME" length="19" />
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date" column="UPDATE_TIME" length="19" />
+	</class>
+</hibernate-mapping>

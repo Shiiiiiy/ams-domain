@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_LEAVE_LIFE" name="com.uws.domain.leave.LifeInfo">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+
+		<!-- 学生基础信息表id -->
+		<many-to-one name="student" column="STUDENT_ID"
+			class="com.uws.domain.orientation.StudentInfoModel" />
+
+		<!-- 办理年份 -->
+		<many-to-one name="year" column="YEAR_ID" class="com.uws.sys.model.Dic" />
+
+		<!--状态 -->
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic" />
+
+		<!-- 创建时间 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19" />
+		</property>
+
+		<!-- 更新时间 -->
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

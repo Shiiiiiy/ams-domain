@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-24 14:47:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.training.SeminarSubscribeList" table="V_TRAINING_SEMINAR_SUBSCRIBE">
+        <composite-id>
+        	<key-many-to-one name="seminarId" class="com.uws.domain.training.SeminarManage" >
+            	<column name="SEMINAR_ID" />
+	        </key-many-to-one>
+	        <key-many-to-one name="collegeId" class="com.uws.domain.base.BaseAcademyModel" >
+	            <column name="COLLEGE_ID" />
+	        </key-many-to-one>
+        </composite-id>
+        <!-- 主讲人 -->
+        <many-to-one name="outerUserId" class="com.uws.domain.training.OuterUserInfo" column="OUTER_USER_ID"/>
+		<!-- 讲座状态 -->
+		<many-to-one name="seminarStatus" class="com.uws.sys.model.Dic" column="SEMINAR_STATUS" />
+		<!-- 预约状态 -->
+        <many-to-one name="appointStatus" class="com.uws.sys.model.Dic" column="APPOINT_STATUS"/>
+    </class>
+</hibernate-mapping>

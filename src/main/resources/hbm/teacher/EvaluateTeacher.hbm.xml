@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_TEACHER_EVALUATE_INFO" name="com.uws.domain.teacher.EvaluateTeacher">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<!-- BaseTeacher表ID -->
+		<many-to-one name="teacher" column="TEACHER_ID"
+			class="com.uws.domain.base.BaseTeacherModel" />
+		<!-- BaseAcademy表ID -->
+		<many-to-one name="college" column="COLLEGE"
+			class="com.uws.domain.base.BaseAcademyModel"/>
+		<!-- 学年 -->
+		<many-to-one name="schoolYear" column="SCHOOL_YEAR"
+			class="com.uws.sys.model.Dic" />
+		<!-- 学期 -->
+		<many-to-one name="schoolTerm" column="SCHOOL_TERM"
+			class="com.uws.sys.model.Dic" />
+		<!-- 工作时间 -->
+		<property name="workTime" column="WORK_TIME" type="java.lang.String"/>
+		<!-- 现任职位 -->
+		<property name="presentJob" column="PRESENT_JOB" type="java.lang.String"/>
+		<!-- 工作总结 -->
+		<property name="yearWorkSummary" column="YEAR_WORK_SUMMARY"
+			type="java.lang.String" length="2000" />
+		<!-- 所获荣誉 -->
+		<property name="honour" column="HONOUR" type="java.lang.String"
+			length="2000" />
+		<!-- 审核状态 -->
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic" />
+		<!-- 创建时间 -->
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date" />
+		<!-- 更新时间 -->
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date" />
+		<!-- 备注 -->
+		<property name="comments" column="COMMENTS" type="java.lang.String"
+			length="100" />
+		<!-- 二级学院审核得分 -->
+		<property name="collegeAuditScroe" column="COLLEGE_AUDIT_SCORE" type="java.lang.Double"/>
+		<!-- 二级学院审核评定等级 -->
+		<many-to-one name="collegeAuditLevel" column="COLLEGE_AUDIT_LEVEL" class="com.uws.sys.model.Dic"/>
+		<!-- 二级学院审核意见 -->
+		<property name="collegeAuditOpinion" column="COLLEGE_AUDIT_OPINION" type="java.lang.String"/>
+		<!-- 二级学院审核人 -->
+		<property name="collegeAuditAuditor" column="COLLEGE_AUDITOR" type="java.lang.String"/>
+		<!-- 二级学院审核状态 -->
+		<property name="collegeAuditStatus" column="COLLEGE_AUDIT_STATUS" type="java.lang.String"/>
+		<!-- 学生处审核得分 -->
+		<property name="stuAffairsAuditScore" column="STU_AFFAIRS_AUDIT_SCORE" type="java.lang.Double"/>
+		<!-- 学生处审核评定等级 -->
+		<many-to-one name="stuAffairsAuditLevel" column="STU_AFFAIRS_AUDIT_LEVEL" class="com.uws.sys.model.Dic"/>
+		<!-- 学生处审核意见 -->
+		<property name="stuAffairsAuditOpinion" column="STU_AFFAIRS_AUDIT_OPINION" type="java.lang.String"/>
+		<!-- 学生处审核人 -->
+		<property name="stuAffairsAuditor" column="STU_AFFAIRS_AUDITOR" type="java.lang.String"/>
+		<!-- 学生处审核状态 -->
+		<property name="stuAffairsAuditStatus" column="STU_AFFAIRS_AUDIT_STATUS" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

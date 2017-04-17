@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_REWARD_AWARD_TYPE" name="com.uws.domain.reward.AwardType">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="SCHOOL_YEAR" class="com.uws.sys.model.Dic" name="schoolYear"/>
+    <many-to-one column="AWARD_TYPE" class="com.uws.sys.model.Dic" name="awardType"/>
+    <many-to-one column="AWARD_INFO_ID" class="com.uws.domain.reward.AwardInfo" name="awardInfoId"/>
+    <many-to-one column="SECOND_AWARD_NAME" class="com.uws.sys.model.Dic" name="secondAwardName"  />
+    <many-to-one column="AWARD_STATUS" class="com.uws.sys.model.Dic" name="awardStatus"/>
+    <property column="AWARD_TYPE_CODE" type="string" name="awardTypeCode"/>
+    <property name="beginDate" type="timestamp">
+        <column name="BEGIN_DATE" length="10" />
+    </property>
+    <property name="endDate" type="timestamp">
+        <column name="END_DATE" length="10" />
+    </property>
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

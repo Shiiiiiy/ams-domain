@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_INFOITEM" name="com.uws.domain.question.QuestionInfoItemModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="questionInfo"  column="QUESNAIRE_ID" class="com.uws.domain.question.QuestionInfoModel"/>
+    <many-to-one name="questionItem" column="QUESTION_ID" class="com.uws.domain.question.QuestionItemModel"/>
+	<property name="quesSeqNum" type="java.lang.Integer">
+		<column name="QUE_ORDER"/>
+	</property>
+	<many-to-one name="itemCategory" column="ITEM_CATEGORY" class="com.uws.sys.model.Dic"/>
+	<property name="itemName" type="java.lang.String">
+		<column name="ITEM_NAME"/>
+	</property>
+	<many-to-one name="itemType" column="ITEM_TYPE" class="com.uws.sys.model.Dic"/>
+	<many-to-one name="itemRequired" column="ITEM_REQUIRED" class="com.uws.sys.model.Dic"/>
+	<many-to-one name="delStatusDic"  column="DELETE_STATUS" class="com.uws.sys.model.Dic"/>
+	<property name="itemTypeSeq" type="java.lang.Integer">
+		<column name="ITEM_TYPE_SEQ"/>
+	</property>
+  </class>
+</hibernate-mapping>

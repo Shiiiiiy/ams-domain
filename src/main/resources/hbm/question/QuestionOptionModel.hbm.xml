@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_OPTION" name="com.uws.domain.question.QuestionOptionModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+    <property name="optionName" column="OPTION_NAME" type="java.lang.String" length="255"/>
+    <property name="seqNum" column="SEQNUM" length="32"/>
+    <property name="optionUrl" column="OPTION_URL" type="java.lang.String" length="255"/>
+    <many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="item" column="ITEM_ID" class="com.uws.domain.question.QuestionItemModel" />
+  </class>
+</hibernate-mapping>

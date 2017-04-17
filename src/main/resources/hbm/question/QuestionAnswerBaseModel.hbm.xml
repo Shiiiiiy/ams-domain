@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_ANSWER_BASEINFO" name="com.uws.domain.question.QuestionAnswerBaseModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+	<many-to-one name="respondent" column="RESPONDENT" class="com.uws.user.model.User"/>
+	<many-to-one name="questionInfo" column="QUESNAIRE_ID" class="com.uws.domain.question.QuestionInfoModel"/>
+    <many-to-one name="answerStatus" column="ANSWER_STATUS" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="quesnaireType" column="QUESNAIRE_TYPE" class="com.uws.sys.model.Dic"/>
+    <property name="createTime"  type="java.util.Date">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime"  type="java.util.Date">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_REWARD_PUNISH_INFO" name="com.uws.domain.reward.PunishInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="STU_ID" class="com.uws.domain.orientation.StudentInfoModel" name="stuId"/>
+    <many-to-one column="PUNISH" class="com.uws.sys.model.Dic" name="punish"/>
+    <many-to-one column="PUNISH_YEAR" class="com.uws.sys.model.Dic" name="punishYear"/>
+    <many-to-one column="PUNISH_TERM" class="com.uws.sys.model.Dic" name="punishTerm"/>
+    <many-to-one column="PUNISH_STATUS" class="com.uws.sys.model.Dic" name="punishStatus"/>
+    <property name="punishStartDate" type="timestamp">
+        <column name="PUNISH_START_DATE" length="10" />
+    </property>
+    <property name="punishEndDate" type="timestamp">
+        <column name="PUNISH_END_DATE" length="10" />
+    </property>
+    <property column="PUNISH_REASON" type="string" name="punishReason"  />
+    <property column="PUNISH_NUM" type="string" name="punishNum"  />
+    <property column="COMMENTS" type="string" length="500" name="comments"  />
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+    <property column="PUNISH_CODE" type="string" name="punishCode"  />
+    <property name="punishDate" type="timestamp">
+        <column name="PUNISH_DATE" length="19" />
+    </property>
+    <property column="PUNISH_INFO" type="string" name="punishInfo"  />
+    <property column="PUNISH_TYPE_CODE" type="string" name="punishTypeCode"  />
+    <property name="punishRepealDate" type="timestamp">
+        <column name="PUNISH_REPEAL_DATE" length="19" />
+    </property>
+    <property column="PUNISH_REPEAL_NUM" type="string" name="punishRepealNum"  />
+    <property name="appealDate" type="timestamp">
+        <column name="APPEAL_DATE" length="19" />
+    </property>
+    <property name="examineDate" type="timestamp">
+        <column name="EXAMINE_DATE" length="19" />
+    </property>
+    <property column="EXAMINE_RESULT" type="string" name="examineResult"  />
+  </class>
+</hibernate-mapping>

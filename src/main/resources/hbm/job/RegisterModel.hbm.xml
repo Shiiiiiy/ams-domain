@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.uws.domain.job.RegisterModel" table="HKY_JOB_REGISTER_INFO" >
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<many-to-one name="employmentYear" column="EMPLOYMENT_YEAR" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="student" column="STUDENT_ID"  class="com.uws.domain.orientation.StudentInfoModel"/>
+		<property name="employmentDepartment" column="EMPLOYMENT_DEPARTMENT"/>
+		<property name="humanDepartment" column="HUMAN_DEPARTMENT"/>
+		<property name="applyReason" column="APPLY_REASON"/>
+		<property name="registerCode" column="REGISTER_CODE"/>
+		<property name="newRegisterCode" column="NEW_REGISTER_CODE"/>
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic" />
+		<property name="createTime" column="CREATE_TIME"/>
+		<property name="updateTime" column="UPDATE_TIME"/>
+	
+	</class>
+</hibernate-mapping>

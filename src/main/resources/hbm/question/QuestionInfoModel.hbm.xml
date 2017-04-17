@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_INFO" name="com.uws.domain.question.QuestionInfoModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="assigned"/>
+    </id>
+	<property name="name" type="java.lang.String">
+		<column name="NAME" length="50" />
+	</property>
+	<property name="releaseDate" type="java.lang.String">
+		<column name="RELEASE_DATE" length="32" />
+	</property>
+    <many-to-one name="typeDic" column="TYPE" class="com.uws.sys.model.Dic"/>
+    <many-to-one name="statusDic" column="STATUS" class="com.uws.sys.model.Dic"/>
+	<property name="comments" type="java.lang.String">
+		<column name="COMMENTS" length="500" />
+	</property>
+    <many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User"/>
+	<property name="createTime"  type="java.util.Date">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime"  type="java.util.Date">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+   	<property name="isOpen"  column="IS_OPEN" type="java.lang.String"/>
+    <many-to-one name="updater" column="UPDATER" class="com.uws.user.model.User"/>
+	<many-to-one name="delStatusDic" column="DELETE_STATUS" class="com.uws.sys.model.Dic"/>
+  </class>
+</hibernate-mapping>

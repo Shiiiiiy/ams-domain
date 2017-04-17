@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="HKY_SPONSOR_ORG_WORK_HOUR" name="com.uws.domain.sponsor.OrgWorkHourModel">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<many-to-one name="orgId" column="ORG_ID" class="com.uws.user.model.Org"/>
+		<property name="workYear" column="WORK_YEAR" type="java.lang.String" length="4"/>
+		<property name="workMonth" column="WORK_MONTH" type="java.lang.String" length="2"/>
+		<many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+		<many-to-one name="submitStatus" column="Submit_Status" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="nextApprover" column="NEXT_APPROVER" class="com.uws.user.model.User"/>
+		<property name="approverStatus" column="APPROVE_STATUS" type="java.lang.String" length="32"/>
+		<property name="processStatus" column="PROCESS_STATUS" type="java.lang.String" length="32"/>
+		<many-to-one name="schoolYear" column="SCHOOLYEAR_ID" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="schoolTerm" column="SCHOOLTERM_ID" class="com.uws.sys.model.Dic"/>
+		<set name="workHourModels" table="HKY_SPONSOR_WORK_HOUR">
+			<key column="ORG_WORKHOUR_ID"/>
+			<one-to-many class="com.uws.domain.sponsor.WorkHourModel"/>
+		</set>
+	</class>
+</hibernate-mapping>

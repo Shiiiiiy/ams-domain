@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_WARNING_FORWARD_INFO" name="com.uws.domain.warning.WarningForwardModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel" name="college"/>
+    <many-to-one column="YEAR" class="com.uws.sys.model.Dic" name="yearDic"/>
+	<many-to-one column="TERM" class="com.uws.sys.model.Dic" name="termDic"/>
+	<many-to-one column="WARNING_TYPE" class="com.uws.sys.model.Dic" name="warningType"/>
+    <property name="warningDate" column="WARNING_DATE"/>
+    <property name="comments" column="COMMENTS"/>
+    <property name="fileNumber" column="FILE_NUMBER"/>
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <many-to-one column="UPDATE_USER" class="com.uws.user.model.User" name="updateUser"/>
+    <property name="createTime" column="CREATE_TIME"/>
+    <property name="updateTime" column="UPDATE_TIME"/>
+  </class>
+</hibernate-mapping>

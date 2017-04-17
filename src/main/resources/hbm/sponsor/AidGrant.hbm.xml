@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_SPONSOR_AID_GRANT" name="com.uws.domain.sponsor.AidGrant">
+    <id name="aidGrantId" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="studentAward" column="DIFFICULT_STUDENT_AWARD" class="com.uws.domain.sponsor.DifficultStudentAward"/>
+    <many-to-one name="aidLevel" column="AID_LEVEL" class="com.uws.sys.model.Dic" />
+    <many-to-one name="isNationalAidAward" column="IS_NATIONAL_AWARD" class="com.uws.sys.model.Dic" />
+    <many-to-one name="isExamFail" column="IS_EXAM_FAIL" class="com.uws.sys.model.Dic" />
+    <many-to-one name="delStatus"  column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+    <property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+    <property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

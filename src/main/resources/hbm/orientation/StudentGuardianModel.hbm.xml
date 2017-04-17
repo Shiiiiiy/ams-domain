@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_STUDENT_GUARDIAN" name="com.uws.domain.orientation.StudentGuardianModel">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+     <!-- 学生基本信息 -->
+     <many-to-one column="STU_ID" class="com.uws.domain.orientation.StudentInfoModel" name="studentInfo"/>
+     
+     <!-- 父亲名称 -->
+    <!-- <property name="fatherName" type="string">
+            <column name="FATHER_NAME" length="50">
+            </column>
+     </property>-->
+     
+     <!-- 父亲手机 -->
+     <!--<property name="fatherPhone" type="string">
+            <column name="FATHER_PHONE" length="15">
+            </column>
+     </property>-->
+     
+      <!-- 父亲邮箱-->
+     <!--<property name="fatherEmail" type="string">
+            <column name="FATHER_EMAIL" length="50">
+            </column>
+     </property>-->
+     
+     <!-- 父亲住址-->
+     <!--<property name="fatherAddress" type="string">
+            <column name="FATHER_ADDRESS" length="100">
+            </column>
+     </property>-->
+     
+     <!-- 父亲邮编-->
+     <!--<property name="fatherPostCode" type="string">
+            <column name="FATHER_POST_CODE" length="10">
+            </column>
+     </property>-->
+     
+     <!-- 父亲工作点-->
+     <!--<property name="fatherWorkUnit" type="string">
+            <column name="FATHER_WORK_UNIT" length="100">
+            </column>
+     </property>-->
+     
+      <!-- 母亲名称 -->
+     <!--<property name="motherName" type="string">
+            <column name="MOTHER_NAME" length="50">
+            </column>
+     </property>-->
+     
+     <!-- 母亲手机 -->
+    <!-- <property name="motherPhone" type="string">
+            <column name="MOTHER_PHONE" length="15">
+            </column>
+     </property>-->
+     
+      <!-- 母亲邮箱-->
+     <!--<property name="motherEmail" type="string">
+            <column name="MOTHER_EMAIL" length="50">
+            </column>
+     </property>-->
+     
+     <!-- 母亲住址-->
+     <!--<property name="motherAddress" type="string">
+            <column name="MOTHER_ADDRESS" length="100">
+            </column>
+     </property>-->
+     
+     <!-- 母亲邮编-->
+    <!-- <property name="motherPostCode" type="string">
+            <column name="MOTHER_POST_CODE" length="10">
+            </column>
+     </property>-->
+     
+     <!-- 母亲工作点-->
+     <!--<property name="motherWorkUnit" type="string">
+            <column name="MOTHER_WORK_UNIT" length="100">
+            </column>
+     </property>-->
+     
+      <!-- 监护人名称 -->
+     <property name="guardianName" type="string">
+            <column name="NAME" length="50">
+            </column>
+     </property>
+     
+     <!-- 监护人手机 -->
+     <property name="guardianPhone" type="string">
+            <column name="PHONE" length="15">
+            </column>
+     </property>
+     
+      <!-- 监护人邮箱-->
+     <property name="guardianEmail" type="string">
+            <column name="EMAIL" length="50">
+            </column>
+     </property>
+     
+     <!-- 监护人住址-->
+     <property name="guardianAddress" type="string">
+            <column name="ADDRESS" length="100">
+            </column>
+     </property>
+     
+     <!-- 监护人邮编-->
+     <property name="guardianPostCode" type="string">
+            <column name="POST_CODE" length="10">
+            </column>
+     </property>
+     
+     <!-- 监护人工作点-->
+     <property name="guardianWorkUnit" type="string">
+            <column name="WORK_UNIT" length="100">
+            </column>
+     </property>
+     
+     <!-- 顺序号-->
+     <property name="seqNum" type="string">
+            <column name="SEQ_NUM" length="2">
+            </column>
+     </property>
+    
+     <!-- 状态-->
+     <!-- <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="statusDic"/>-->
+     <!-- 状态-->
+     <property name="status" type="string">
+            <column name="STATUS" length="2">
+            </column>
+     </property>
+    
+   	<!-- 创建日期-->
+    <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <!-- 创建人-->
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    
+    <!-- 更新日期-->    
+    <property name="updateTime" type="timestamp">
+            <column name="UPDATE_TIME" length="19" />
+    </property>
+    
+    <!-- 更新人-->
+    <many-to-one column="UPDATER" class="com.uws.user.model.User" name="updater"/>
+    
+  </class>
+</hibernate-mapping>

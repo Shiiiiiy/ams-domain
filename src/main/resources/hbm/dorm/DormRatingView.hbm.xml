@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="V_SS_RATING" name="com.uws.domain.dorm.DormRatingView">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="batchInfo"  column="BATCH_INFO" type="java.lang.String"/>
+    <many-to-one column="BUILD_ID" class="com.uws.domain.base.BaseBuildingModel" name="building"/>
+    <property name="buildName"  column="BUILD_NAME" type="java.lang.String"/>
+    <many-to-one column="ROOM_ID" class="com.uws.domain.base.BaseRoomModel" name="room"/>
+    <property name="roomName"  column="ROOM_NAME" type="java.lang.String"/>
+    <property name="batchId"  column="BATCH_ID" type="java.lang.String"/>
+    <property name="batchName"  column="BATCH_NAME" type="java.lang.String"/>
+    <property name="projectId"  column="PROJECT_ID" type="java.lang.String"/>
+    <property name="projectName"  column="PROJECT_NAME" type="java.lang.String"/>
+    <property name="loseScore"  column="LOSE_SCORE" type="java.lang.String"/>
+    <property name="checkUser"  column="CHECK_USER" type="java.lang.String"/>
+    <property name="checkTime" column="CHECK_TIME" type="java.util.Date"/>
+    <property name="level"  column="LEVEL_ID" type="java.lang.String"/>
+    <property name="isPacesetter"  column="IS_BB" type="java.lang.String"/>
+    <property name="isBedRoom"  column="IS_BED_ROOM" type="java.lang.String"/>
+    <property name="getScore"  column="GET_SCORE" type="java.lang.String"/>
+    <property name="comments"  column="COMMENTS" type="java.lang.String"/>
+  </class>
+</hibernate-mapping>

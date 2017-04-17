@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_SPONSOR_SCHOOL_LOAN" name="com.uws.domain.sponsor.SchoolLoan">
+    <id name="schoolLoanId" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="studentAward" column="DIFFICULT_STUDENT_AWARD" class="com.uws.domain.sponsor.DifficultStudentAward"/>
+    <property name="applyMoney" column="APPLY_MONEY"/>
+    <property name="returnTime" column="RETURN_TIME" type="java.util.Date"/>
+    <property name="parentOpinion" column="PARENT_OPINION" type="java.lang.String" />
+    <property name="teacherOpinion" column="TEACHER_OPINION" type="java.lang.String" />
+    <many-to-one name="delStatus"  column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+    <property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+    <property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-19 11:59:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.league.LeagueMemberInfoModel" table="HKY_LEAGUE_MEMBER_INFO" >
+        															
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="uuid.hex" />
+        </id>
+        
+	<!-- 学生对象-->
+ 	<many-to-one name="stuInfo" column="STU_ID" class="com.uws.domain.orientation.StudentInfoModel" />
+    <!-- 是否团支书-->
+    <many-to-one name="isSecretary" column="IS_SECRETARY" class="com.uws.sys.model.Dic" not-found="ignore"/>
+    <!-- 团籍-->
+    <many-to-one name="memberType" column="MEMBER_TYPE" class="com.uws.sys.model.Dic" not-found="ignore"/>
+    <!-- 入团时间-->
+    <property name="joinTime" type="java.util.Date">
+            <column name="JOIN_TIME" length="19" />
+    </property>
+    <!-- 团内外职务-->
+ 	 <property name="leaguePosition" type="java.lang.String">
+            <column name="LEAGUE_POSITION" />
+    </property>
+    <!-- 是否提交入党申请书-->
+    <many-to-one name="isPartyApply" column="IS_PARTY_APPLY" class="com.uws.sys.model.Dic" not-found="ignore"/>
+    <!-- 递交申请书时间-->
+    <property name="partyApplyTime" type="java.util.Date">
+            <column name="PARTY_APPLY_TIME" length="19" />
+    </property>
+   	<!-- 是否获得团内荣誉-->
+    <many-to-one name="isHaveHonor" column="IS_HAVE_HONOR" class="com.uws.sys.model.Dic" not-found="ignore"/>
+	<!-- 是否参加团干培训-->
+    <many-to-one name="isTrianing" column="IS_TRIANING" class="com.uws.sys.model.Dic" not-found="ignore"/>
+     <!-- 团干培训时间-->
+    <property name="trianingTime" type="java.util.Date">
+            <column name="TRIANING_TIME" length="19" />
+    </property>
+    <!-- 是否推优-->
+    <many-to-one name="isRecommoned" column="IS_RECOMMONED" class="com.uws.sys.model.Dic" not-found="ignore"/>
+     <!-- 推优时间-->
+    <property name="recommonedTime" type="java.util.Date">
+            <column name="RECOMMONED_TIME" length="19" />
+    </property>
+     <!-- 入党时间-->
+    <property name="partyTime" type="java.util.Date">
+            <column name="PARTY_TIME" length="19" />
+    </property>
+    <!-- 删除状态-->
+    <many-to-one name="deleteStatus" column="DELETE_STATUS" class="com.uws.sys.model.Dic"/>
+	<!-- 备注-->
+	<property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="500"/>
+    </property>
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>  
+           
+        
+        
+       
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_TIME_SET_CONFIG" name="com.uws.domain.config.TimeConfigModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="name" column="NAME"/>
+    <property name="code" column="CODE"/>
+    <property name="beginDate" column="BEGIN_DATE"/>
+    <property name="endDate" column="END_DATE"/>
+    <property name="comments" column="COMMENTS"/>
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <many-to-one column="UPDATE_USER" class="com.uws.user.model.User" name="updateUser"/>
+    <many-to-one column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel" name="college"/>
+    <property name="updateTime" column="UPDATE_TIME"/>
+  </class>
+</hibernate-mapping>

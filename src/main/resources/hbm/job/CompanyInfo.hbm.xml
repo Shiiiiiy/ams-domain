@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_JOB_COMPANY_INFO" name="com.uws.domain.job.CompanyInfo">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<many-to-one name="college" column="COLLEGE_ID" class="com.uws.user.model.Org"/>
+		<property name="companyName" column="COMPANY_NAME" type="java.lang.String"/>
+		<many-to-one name="companyProerty" column="COMPANY_PROPERTY" class="com.uws.sys.model.Dic"/>
+		<property name="address" column="ADDRESS" type="java.lang.String"/>
+		<property name="contactPerson" column="CONTACT_PERSON" type="java.lang.String"/>
+		<property name="contactPhone" column="CONTACT_PHONE" type="java.lang.String"/>
+		<property name="contactPost" column="CONTACT_POST" type="java.lang.String"/>
+		<property name="phoneNum" column="PHONE_NUM" type="java.lang.String"/>
+		<property name="needWork" column="NEED_WORK" type="java.lang.String"/>
+		<many-to-one name="isSchoolCompanyProtocol" column="IS_SCHOOL_COMPANY_PROTOCOL" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="isBatchWork" column="IS_SCHOOL_BATCH_WORK" class="com.uws.sys.model.Dic"/>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+		<many-to-one name="delState" column="DEL_STATE" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="creator" column="CREATOR" class="com.uws.user.model.User"/>
+		<property name="updateDate" column="UPDATE_DATE" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>

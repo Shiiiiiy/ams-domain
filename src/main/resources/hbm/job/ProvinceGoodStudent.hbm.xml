@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_JOB_PROVINCE_GOOD_STUDENT" name="com.uws.domain.job.ProvinceGoodStudent">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one name="schoolGoodStudent" column="SCHOOL_GOOD_STUDENT" class="com.uws.domain.job.SchoolGoodStudent" />
+    <property name="resume"  column="RESUME" type="java.lang.String"/>
+    <property name="mainStory"  column="MAIN_STORY" type="java.lang.String"/>
+    <property name="flag"  column="FLAG" type="java.lang.String"/>
+    <many-to-one name="status" column="STATUS" class="com.uws.sys.model.Dic"/>
+    <property name="approveReason"  column="APPROVE_REASON" type="java.lang.String"/>
+    <property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+    <property name="updateTime" column="UPDATE_TIME" type="java.util.Date"/>
+  </class>
+</hibernate-mapping>

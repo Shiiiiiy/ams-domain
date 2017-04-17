@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_JOB_EMPLOYMENT_SCHEME" name="com.uws.domain.job.EmploymentScheme">
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<property name="examNo" column="EXAM_NO" type="java.lang.String"/>
+		<property name="political" column="POLITICAL" type="java.lang.String"/>
+		<property name="sexCode" column="SEX_CODE" type="java.lang.String"/>
+		<property name="nationCode" column="NATION_CODE" type="java.lang.String"/>
+		<property name="schoolName" column="SCHOOL_NAME" type="java.lang.String"/>
+		<property name="brachSchoolName" column="BRANCH_SCHOOL_NAME" type="java.lang.String"/>
+		<property name="schoolCode" column="SCHOOL_CODE" type="java.lang.String"/>
+		<property name="schoolPrivince" column="SCHOOL_PROVINCE" type="java.lang.String"/>
+		<property name="educationCode" column="EDUCATION_CODE" type="java.lang.String"/>
+		<property name="majorCode" column="MAJOR_CODE" type="java.lang.String"/>
+		<property name="majorSide" column="MAJOR_SIDE" type="java.lang.String"/>
+		<property name="trainTypeCode" column="TRAIN_TYPE_CODE" type="java.lang.String"/>
+		<property name="placeCode" column="PLACE_CODE" type="java.lang.String"/>
+		<property name="cityVillage" column="CITY_VILLAGE" type="java.lang.String"/>
+		<property name="teachStudentTypeCode" column="TEACH_STUDENT_TYOE_CODE" type="java.lang.String"/>
+		<property name="difficultTypeCode" column="DIFFICULT_TYPE_CODE" type="java.lang.String"/>
+		<many-to-one name="studentId" column="STUDENT_ID" class="com.uws.domain.orientation.StudentInfoModel"/>
+		<property name="trainCompany" column="TRAIN_COMPANY" type="java.lang.String"/>
+		<property name="beforeFileCompany" column="BEFORE_FILE_COMPANY" type="java.lang.String"/>
+		<many-to-one name="isFileSchool" column="IS_FILE_SCHOOL" class="com.uws.sys.model.Dic"/>
+		<property name="beforeAccountPolice" column="BEFORE_ACCOUNT_POLICE" type="java.lang.String"/>
+		<many-to-one name="isAccountSchool" column="IS_ACCOUNT_SCHOOL" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="graduateCode" column="GRADUATE_CODE" class="com.uws.sys.model.Dic"/>
+		<property name="companyName" column="COMPANY_NAME" type="java.lang.String"/>
+		<property name="companyOrgCode" column="COMPANY_ORG_CODE" type="java.lang.String"/>
+		<property name="companyCode" column="COMPANY_CODE" type="java.lang.String"/>
+		<property name="companyIndustryCode" column="COMPANY_INDUSTRY_CODE" type="java.lang.String"/>
+		<property name="companyPlaceCode" column="COMPANY_PLACE_CODE" type="java.lang.String"/>
+		<property name="companyPlace" column="COMPANY_PLACE" type="java.lang.String"/>
+		<property name="workTypeCode" column="WORK_TYPE_CODE" type="java.lang.String"/>
+		<property name="companyPerson" column="COMPANY_PERSON" type="java.lang.String"/>
+		<property name="personTelephone" column="PERSON_TELEPHONE" type="java.lang.String"/>
+		<property name="personPhone" column="PERSON_PHONE" type="java.lang.String"/>
+		<property name="personEmail" column="PERSON_EMAIL" type="java.lang.String"/>
+		<property name="personFax" column="PERSON_FAX" type="java.lang.String"/>
+		<property name="companyAddress" column="COMPANY_ADDRESS" type="java.lang.String"/>
+		<property name="compantPost" column="COMPANY_POST" type="java.lang.String"/>
+		<property name="reportTypeCode" column="REPORT_TYPE_CODE" type="java.lang.String"/>
+		<property name="reportCompanyName" column="REPORT_COMPANY_NAME" type="java.lang.String"/>
+		<property name="reportCompanyPlaceCode" column="REPORT_COMPANY_PLACE_CODE" type="java.lang.String"/>
+		<property name="reportCompnayPlace" column="REPORT_COMPANY_PLACE" type="java.lang.String"/>
+		<property name="fileCompanyName" column="FILE_COMPANY_NAME" type="java.lang.String"/>
+		<property name="fileCompanyAddress" column="FILE_COMPANY_ADDRESS" type="java.lang.String"/>
+		<property name="fileCompanyPost" column="FILE_COMPANY_POST" type="java.lang.String"/>
+		<property name="accountAddress" column="ACCOUNT_ADDRESS" type="java.lang.String"/>
+		<property name="reportNo" column="REPORT_NO" type="java.lang.String"/>
+		<property name="reportStartTime" column="REPORT_START_TIME" type="java.util.Date"/>
+		<property name="jobCommentOne" column="JOB_COMMENT_ONE" type="java.lang.String"/>
+		<property name="jobCommentTwo" column="JOB_COMMENT_TWO" type="java.lang.String"/>
+		<property name="jobCommentThree" column="JOB_COMMENT_THREE" type="java.lang.String"/>
+		<property name="graduatePlan" column="GRADUATE_PLAN" type="java.lang.String"/>
+		<property name="graduateTime" column="GRADUATE_TIME" type="java.util.Date"/>
+		<property name="sourcePlace" column="SOURCE_PLACE" type="java.lang.String"/>
+		<many-to-one name="delState" column="DEL_STATE" class="com.uws.sys.model.Dic"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class table="V_JOB_PROVINCEGOOD_CLASS" name="com.uws.domain.job.ProvinceGoodStudentClassView">
+		<composite-id>
+			<key-many-to-one name="schoolYear" column="SCHOOL_YEAR_DIC_ID" class="com.uws.sys.model.Dic"/>
+			<key-many-to-one name="classModel" column="CLASS_ID" class="com.uws.domain.base.BaseClassModel"/>
+		</composite-id>
+		<property name="approvePassNum" column="APPROVE_PASS_NUM"/>
+		<property name="approveRejectNum" column="APPROVE_REJECT_NUM"/>
+		<property name="total" column="TOTAL"/>
+	</class>
+</hibernate-mapping>

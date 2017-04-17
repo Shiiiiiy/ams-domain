@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="HKY_TERM_SET_CONFIG" name="com.uws.domain.config.TermConfigModel">
+		<id name="id" column="ID">
+			<generator class="uuid.hex" />
+		</id>
+		<many-to-one column="YEAR" class="com.uws.sys.model.Dic" name="yearDic"/>
+		<many-to-one column="TERM" class="com.uws.sys.model.Dic" name="termDic"/>
+		<property name="beginDate" column="BEGIN_DATE" />
+		<property name="endDate" column="END_DATE" />
+		<property name="createTime" column="CREATE_TIME" />
+		<property name="updateTime" column="UPDATE_TIME" />
+	</class>
+</hibernate-mapping>

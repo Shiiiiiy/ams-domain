@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-19 11:59:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.sponsor.ScheduleModel" table="HKY_SPONSOR_SCHEDULE" >
+     	<id name="scheduleId" type="string">
+         	<column name="ID" length="32" />
+         	<generator class="uuid.hex" />
+     	</id>
+    <!-- 岗位申请单对象 -->	
+	<many-to-one name="applyFile" column="APPLE_FILE_ID" class="com.uws.domain.sponsor.WorkApplyFileModel"/>
+	<!--  星期-->
+	<many-to-one name="weekendDic" column="WEEKEND" class="com.uws.sys.model.Dic"/>
+	<!--  课节数-->
+	<many-to-one name="lessonDic" column="LESSON_ID" class="com.uws.sys.model.Dic"/>
+	<!--删除状态  -->
+	<many-to-one name="delStatus" column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+	
+	<!-- 备注-->
+	<property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="500"/>
+    </property>
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>    
+  </class>
+</hibernate-mapping>

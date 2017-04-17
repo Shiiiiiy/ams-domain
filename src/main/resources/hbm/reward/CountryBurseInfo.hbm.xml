@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_REWARD_COUNTRY_BURSE_INFO" name="com.uws.domain.reward.CountryBurseInfo">
+    <id name="id" column="ID" length="32">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="STU_ID" class="com.uws.domain.orientation.StudentInfoModel" name="stuId"/>
+    <many-to-one column="YEAR" class="com.uws.sys.model.Dic" name="schoolYear"/>
+    <property column="AMOUNT" type="double" name="amount"  />
+    <many-to-one column="BURSE_NAME" class="com.uws.sys.model.Dic" name="burseName"/>
+    <many-to-one column="HELP_GRADE" class="com.uws.sys.model.Dic" name="helpGrade"/>
+    <property column="COMMENTS" type="string" name="comments"  />
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    <property name="createTime" type="timestamp">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime" type="timestamp">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>

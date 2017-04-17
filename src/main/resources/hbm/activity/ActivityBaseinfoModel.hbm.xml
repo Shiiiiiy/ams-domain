@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!-- 活动基本信息 -->   
+  <class table="HKY_ACTIVITY_BASEINFO" name="com.uws.domain.activity.ActivityBaseinfoModel">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id> 
+    <!-- 活动名称 -->   
+    <property name="activityName" column="ACTIVITY_NAME"/>
+    <!-- 活动时间 -->  
+    <property name="activityTime" column="ACTIVITY_TIME"  type="java.util.Date"/>
+    <!-- 活动申请时间 -->  
+    <property name="applyTime" column="APPLY_TIME"  type="java.util.Date"/>
+    <!-- 活动地点 -->  
+    <property name="activityAddress" column="ACTIVITY_ADDRESS"/>
+    <!-- 志愿者基地 -->  
+    <many-to-one name="volunteerAddress" class="com.uws.domain.volunteer.VolunteerOfficeModel" column="VOLUNTEER_ADDRESS"/>
+    <!-- 活动简介 -->  
+    <property name="activityIntro" column="ACTIVITY_INTRO"/>
+    <!-- 活动参与人数(只包括学生) -->  
+    <property name="members" column="MEMBERS"/>
+    <!-- 活动负责人 -->  
+    <many-to-one column="MANAGER" class="com.uws.domain.base.BaseTeacherModel" name="manager"/>
+    <!-- 活动负责人联系电话 -->  
+    <property name="managerPhone" column="MANAGER_PHONE"/>
+    <!-- 活动安全安排 -->  
+    <property name="security" column="SECURITY"/>
+    <!-- 交通安排(校外活动) -->  
+    <property name="trafficPlan" column="TRAFFIC_PLAN"/>
+    <!-- 活动级别(学校级、学院级、社团级) -->  
+    <many-to-one column="ACTIVITY_LEVEL" class="com.uws.sys.model.Dic" name="activityLevel"/>
+    <!-- 社团活动 -->  
+    <many-to-one column="ASSOCIATION" class="com.uws.domain.association.AssociationBaseinfoModel" name="association"/>
+    <!-- 学院 -->  
+    <property name="collegeIds" column="COLLEGE"/>
+    <!-- 专业 -->  
+    <property name="majorIds" column="MAJOR"/>
+    <!-- 班级 -->  
+    <property name="classIds" column="CLASS_"/>
+    <!-- 活动类型(社团活动、社会实践、志愿服务、团学活动、其他) -->  
+    <many-to-one column="ACTIVITY_TYPE" class="com.uws.sys.model.Dic" name="activityType"/>
+    <!-- 活动类别(校内活动、校外活动) -->  
+    <many-to-one column="ACTIVITY_CATEGORY" class="com.uws.sys.model.Dic" name="activityCategory"/>
+    <!-- 报名方式 -->  
+    <many-to-one column="REGISTRA_FORM" class="com.uws.sys.model.Dic" name="registraForm"/>
+    <!-- 工作人员数目 -->  
+    <property name="workerNum" column="WORKER_NUM"/>
+    <!-- 联系单位负责人(校内活动) -->  
+    <many-to-one column="UNIT_MANAGER" class="com.uws.domain.base.BaseTeacherModel" name="unitManager"/>
+    <!-- 单位负责人职务(校内活动) -->  
+    <many-to-one column="UNIT_POSITION" class="com.uws.user.model.Position" name="unitPosition"/>
+    <!-- 联系单位办公电话(校内活动) -->  
+    <property name="unitPhone" column="UNIT_PHONE"/>
+    <!-- 联系单位手机(校内活动) -->  
+    <property name="unitCellphone" column="UNIT_CELLPHONE"/>
+    <!-- 修改时间 -->  
+    <property name="updateTime" column="UPDATE_TIME"/>
+    <!-- 审批意见(审批流) -->  
+    <property name="suggest" column="SUGGEST"/>
+    <!-- 流程审批状态(审批流) -->  
+    <property name="processStatus" column="PROCESSSTATUS"/>
+    <!-- 节点审批结果 -->  
+    <property name="approveResult" column="APPROVERESULT"/>
+    <!-- 活下一节点办理人动名称 -->  
+    <many-to-one column="NEXTAPPROVER" class="com.uws.user.model.User" name="nextApprover"/>
+    <many-to-one column="CONTACT_TEACHERS" class="com.uws.domain.base.BaseTeacherModel" name="contactTeachers"/>
+    <many-to-one column="CONTACT_STUDENTS" class="com.uws.domain.orientation.StudentInfoModel" name="contactStudents"/>
+    <!-- 创建人 -->  
+    <many-to-one column="CREATOR" class="com.uws.domain.orientation.StudentInfoModel" name="creator"/>
+    <!-- 删除状态 -->  
+    <many-to-one column="DELETE_STATUS" class="com.uws.sys.model.Dic" name="deleteStatus"/>
+    <!-- 状态 -->
+    <property name="status" column="STATUS"/>
+    <!-- 活动是否举行 --> 
+    <many-to-one column="HOLD_STATUS" class="com.uws.sys.model.Dic" name="holdStatus"/>  
+    <!-- 活动是否可报名 --> 
+    <many-to-one column="IS_SIGN_STATUS" class="com.uws.sys.model.Dic" name="isSignStatus"/>
+    <!-- 活动备注 --> 
+    <property name="comments" column="COMMENTS"></property>
+    <property name="workers" column="WORKERS"></property>
+    <!-- 活动总结 --> 
+    <property name="summary" column="SUMMARY"></property>
+    <!-- 创建时间 -->   
+    <property name="createTime" column="CREATE_TIME"  type="java.util.Date"></property>
+    <!-- 活动总结状态 --> 
+    <property name="summaryStatus" column="SUMMARY_STATUS"></property>
+    <!-- 活动未举办原因--> 
+    <property name="reason" column="REASON"></property>
+    <!-- z组织者 --> 
+    <property name="organizer" column="ORGANIZER"></property>
+  </class>
+</hibernate-mapping>

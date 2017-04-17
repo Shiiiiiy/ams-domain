@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="V_TRAINING_STARTUP_COMPLETE" name="com.uws.domain.training.StatisticStartupComplete">
+		<id name="id" column="ID" type="java.lang.String" length="32">
+			<generator class="identity" />
+		</id>
+		<!-- 学年 -->
+		<many-to-one name="schoolYear" column="SCHOOL_YEAR" class="com.uws.sys.model.Dic"/>
+		<!-- 创业班名称 -->
+		<property name="className" column="GROWTH_CLASS_NAME" type="java.lang.String" length="32"/>
+		<!-- 创业班主题 -->
+		<property name="classTheme" column="GROWTH_CLASS_THEME" type="java.lang.String" length="32"/>
+		<!-- 创业班类型 -->
+		<many-to-one name="classType" column="GROWTH_CLASS_TYPE" class="com.uws.sys.model.Dic"/>
+		<!-- 创业班状态 -->
+		<many-to-one name="classStatus" column="GROWTH_CLASS_STATUS" class="com.uws.sys.model.Dic"/>
+		<!-- 班主任 -->
+		<property name="teacherName" column="TEACHER_NAME" type="java.lang.String" length="32"/>
+		<!-- 结业状态 -->
+		<many-to-one name="completeStatus" column="COMPLETE_STATUS" class="com.uws.sys.model.Dic"/>
+		<!-- 结业人数 -->
+		<property name="completeNum" column="COMPLETE_NUM" type="java.lang.Integer" length="32"/>
+		<!-- 未结业人数 -->
+		<property name="uncompleteNum" column="UNCOMPLETE_NUM" type="java.lang.Integer" length="32"/>
+		<!-- 总数 -->
+		<property name="sumNum" column="SUM_NUM" type="java.lang.Integer" length="32"/>
+	</class>
+</hibernate-mapping>

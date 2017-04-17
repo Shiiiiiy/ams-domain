@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="HKY_WELCOME_SET" name="com.uws.domain.orientation.WelcomeSetModel">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+     
+     <!-- 学年-->
+     <many-to-one column="YEAR" class="com.uws.sys.model.Dic" name="yearDic"/>
+     
+     <!-- 新生信息采集开始日期-->    
+    <property name="startDate" type="timestamp">
+            <column name="START_DATE" length="19" />
+    </property>
+    
+    <!-- 新生信息采集结束日期-->    
+    <property name="endDate" type="timestamp">
+            <column name="END_DATE" length="19" />
+    </property>
+     
+     <!-- 信息采集填写 -->
+     <property name="writeComm" type="string">
+            <column name="WRITE_COMM" >
+            </column>
+     </property>
+     
+     <!-- 户口迁移地址 -->
+     <property name="moveAdderss" type="string">
+            <column name="MOVE_ADDRESS" length="100">
+            </column>
+     </property>
+     
+      <!-- 空调说明-->
+     <property name="airCondComm" type="string">
+            <column name="AIR_COND_COMM" >
+            </column>
+     </property>
+     
+     <!-- 寝具包-->
+     <property name="bedComm" type="string">
+            <column name="BED_COMM" >
+            </column>
+     </property>
+     
+     <!-- 报到流程说明-->
+     <property name="reportComm" type="string">
+            <column name="REPORT_COMM" >
+            </column>
+     </property>
+     
+     <!-- 状态-->
+     <!-- <many-to-one column="STATUS" class="com.uws.sys.model.Dic" name="statusDic"/>-->
+     <!-- 状态-->
+     <property name="status" type="string">
+            <column name="STATUS" length="2">
+            </column>
+     </property>
+    
+   	<!-- 创建日期-->
+    <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    
+    <!-- 创建人-->
+    <many-to-one column="CREATOR" class="com.uws.user.model.User" name="creator"/>
+    
+    <!-- 更新日期-->    
+    <property name="updateTime" type="timestamp">
+            <column name="UPDATE_TIME" length="19" />
+    </property>
+    
+    <!-- 更新人-->
+    <many-to-one column="UPDATER" class="com.uws.user.model.User" name="updater"/>
+    
+  </class>
+</hibernate-mapping>

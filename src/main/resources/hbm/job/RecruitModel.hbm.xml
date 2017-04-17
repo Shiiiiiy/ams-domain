@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.uws.domain.job.RecruitModel" table="HKY_JOB_RECRUIT_INFO" >
+		<id name="id" column="ID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<many-to-one name="year" column="YEAR" class="com.uws.sys.model.Dic"/>
+		<many-to-one name="college" column="COLLEGE" class="com.uws.domain.base.BaseAcademyModel"/>
+		
+		<property name="largeRecruit" column="LARGE_RECRUIT"/>
+		<property name="largeRecruitDepartment" column="LARGE_RECRUIT_DEPARTMENT"/>
+		<property name="largeRecruitPosition" column="LARGE_RECRUIT_POSITION"/>
+		<property name="smallRecruit" column="SMALL_RECRUIT"/>
+		<property name="smallRecruitDepartment" column="SMALL_RECRUIT_DEPARTMENT"/>
+		<property name="smallRecruitPosition" column="SMALL_RECRUIT_POSITION"/>
+		
+		<property name="career" column="CAREER"/>
+		<property name="careerDepartment" column="CAREER_DEPARTMENT"/>
+		<property name="careerPosition" column="CAREER_POSITION"/>
+		
+		<property name="createTime" column="CREATE_TIME"/>
+		<property name="updateTime" column="UPDATE_TIME"/>
+	
+	</class>
+</hibernate-mapping>

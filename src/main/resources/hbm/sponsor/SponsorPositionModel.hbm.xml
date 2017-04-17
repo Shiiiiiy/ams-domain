@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-19 11:59:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.uws.domain.sponsor.SponsorPositionModel" table="HKY_SPONSOR_POSITION" >
+        
+        <id name="positionId" type="string">
+            <column name="ID" length="32" />
+            <generator class="uuid.hex" />
+        </id>
+    <!-- 岗位名称 -->   
+	<property name="workName" type="string">
+            <column name="WORK_NAME" length="50"/>
+   	</property>
+
+	<!-- 用工部门 -->
+	<many-to-one name="workOrg" column="WORK_ORG_ID" class="com.uws.domain.sponsor.WorkOrgModel" />
+   
+    <!-- 岗位人数 -->  
+    <property name="workNumber" type="java.lang.Integer">
+            <column name="WORK_NUMBER" />
+    </property>
+    <!-- 工作描述 -->
+    <property name="workDesc" type="string">
+	           <column name="WORK_DESC" length="100"/>
+   	</property>
+    <!-- 岗位薪资 -->
+	<property name="workSalary" type="java.lang.Double">
+            <column name="WORK_SALARY" />
+    </property>
+  
+    <!-- 删除状态 -->    
+    <many-to-one name="delStatus" column="DEL_STATUS" class="com.uws.sys.model.Dic"/>
+
+	<!-- 备注-->
+	<property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="500"/>
+    </property>
+    <!-- 创建时间-->
+	<property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+    </property>
+    <!-- 更新时间-->  
+    <property name="updateTime" type="java.util.Date">
+           <column name="UPDATE_TIME" length="19" />
+    </property>    
+        
+        
+       
+  </class>
+</hibernate-mapping>

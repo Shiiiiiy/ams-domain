@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="HKY_QUESTION_ANSWER_DETAILINFO" name="com.uws.domain.question.QuestionAnswerDetailModel">
+    <id name="id" type="string">
+	    <column name="ID" length="32" />
+	    <generator class="uuid.hex"/>
+    </id>
+	<property name="itemName" type="java.lang.String">
+		<column name="ITEM_NAME" />
+	</property>
+	<property name="itemSeq" type="java.lang.Integer">
+		<column name="ITEM_SEQ" />
+	</property>
+	<property name="optionSeq" type="java.lang.Integer">
+		<column name="OPTION_SEQ" />
+	</property>
+	<property name="optionCode" type="java.lang.String">
+		<column name="OPTION_CODE" />
+	</property>
+	<property name="optionName" type="java.lang.String">
+		<column name="OPTION_NAME" />
+	</property>
+	<property name="itemAnswer" type="java.lang.String">
+		<column name="ITEM_ANSWER" />
+	</property>
+	<property name="quesnaireType" type="java.lang.String" column="QUESNAIRE_TYPE"/>
+	<many-to-one name="respondent" column="RESPONDENT" class="com.uws.user.model.User"/>				
+	<many-to-one name="answerBaseInfo" column="ANSWER_ID" class="com.uws.domain.question.QuestionAnswerBaseModel"/>
+	<many-to-one name="questionInfo" column="QUESNAIRE_ID" class="com.uws.domain.question.QuestionInfoModel"/>
+	<many-to-one name="paperItemInfo" column="PAPER_ITEM_ID" class="com.uws.domain.question.QuestionInfoItemModel"/>
+	<many-to-one name="itemOptionInfo" column="ITEM_OPTION_ID" class="com.uws.domain.question.QuestionItemOptionModel"/>
+    <many-to-one name="itemType" column="ITEM_TYPE" class="com.uws.sys.model.Dic"/>
+	<property name="itemTypeSeq" type="java.lang.Integer">
+		<column name="ITEM_TYPE_SEQ" />
+	</property>
+    <property name="createTime"  type="java.util.Date">
+        <column name="CREATE_TIME" length="19" />
+    </property>
+    <property name="updateTime"  type="java.util.Date">
+        <column name="UPDATE_TIME" length="19" />
+    </property>
+  </class>
+</hibernate-mapping>
